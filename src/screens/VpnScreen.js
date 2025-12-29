@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Share, Platform, Linking } from 'react-native';
-// import { LinearGradient } from 'expo-linear-gradient'; // Temporarily disabled
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import * as Clipboard from 'expo-clipboard'; // Temporarily disabled due to native module issues
 import * as FileSystem from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
+// Import WireGuard VPN Connect (may not be available in Expo Go)
+let WireGuardVpnConnect = null;
+try {
+  WireGuardVpnConnect = require('react-native-wireguard-vpn-connect').default || require('react-native-wireguard-vpn-connect');
+} catch (err) {
+  console.warn('WireGuard VPN Connect module not available:', err.message);
+}
 import useVpnStore from '../store/vpnStore';
 import useWalletStore from '../store/walletStore';
 import api from '../services/api';
@@ -40,6 +46,28 @@ const VpnScreen = () => {
     currentSpeed: 0,
   });
   const [isMeasuringSpeed, setIsMeasuringSpeed] = useState(false);
+  const [wireguardAvailable, setWireguardAvailable] = useState(false);
+
+  // Check if WireGuard library is available (won't work in Expo Go)
+  useEffect(() => {
+    const checkWireguardAvailability = () => {
+      try {
+        // Check if the module is available and has required methods
+        const isAvailable = WireGuardVpnConnect &&
+                            typeof WireGuardVpnConnect.connect === 'function' &&
+                            typeof WireGuardVpnConnect.disconnect === 'function';
+        setWireguardAvailable(isAvailable);
+
+        if (!isAvailable) {
+          console.warn('WireGuard VPN Connect not available. This requires a development build (not Expo Go).');
+        }
+      } catch (err) {
+        console.warn('WireGuard VPN Connect not available (likely using Expo Go):', err);
+        setWireguardAvailable(false);
+      }
+    };
+    checkWireguardAvailability();
+  }, []);
 
   useEffect(() => {
     if (error) {
@@ -124,17 +152,53 @@ const VpnScreen = () => {
   const handleConnect = async () => {
     connectStart();
     try {
+      // Step 1: Get VPN connection from backend
       const result = await api.connectVPN(connected && address ? address : null);
 
-      connectSuccess(result);
+      // Step 2: Check if wireguard config is available
+      if (!result.wireguard_config) {
+        if (result.wireguard_error) {
+          const errorMsg = `WireGuard config unavailable: ${result.wireguard_error}`;
+          connectFailure(errorMsg);
+          Toast.fail(errorMsg);
+        } else {
+          const errorMsg = 'WireGuard config unavailable. Check backend logs.';
+          connectFailure(errorMsg);
+          Toast.fail(errorMsg);
+        }
+        return;
+      }
 
-      // Show warning if wireguard config is missing
-      if (!result.wireguard_config && result.wireguard_error) {
-        Toast.fail(`VPN Connected but WireGuard config unavailable: ${result.wireguard_error}`);
-      } else if (!result.wireguard_config) {
-        Toast.fail('VPN Connected but WireGuard config unavailable. Check backend logs.');
+      // Step 3: Connect using react-native-wireguard-vpn-connect
+      if (wireguardAvailable) {
+        try {
+          await WireGuardVpnConnect.connect(result.wireguard_config);
+
+          // Step 4: Update store with connection info
+          connectSuccess(result);
+          Toast.success('VPN Connected');
+        } catch (wgError) {
+          // WireGuard connection failed, but backend connection succeeded
+          // Still update store but show warning
+          connectSuccess(result);
+          const wgErrorMsg = wgError?.message || 'Failed to establish WireGuard tunnel';
+          Toast.fail(`Backend connected but WireGuard failed: ${wgErrorMsg}`);
+          console.error('WireGuard connection error:', wgError);
+        }
       } else {
-        Toast.success('VPN Connected');
+        // WireGuard library not available (likely Expo Go)
+        // Still update store but show info message
+        connectSuccess(result);
+        Toast.success('Backend connected. WireGuard tunnel requires development build.');
+        Alert.alert(
+          'Development Build Required',
+          'To use native WireGuard VPN connection, you need to:\n\n' +
+          '1. Run: npx expo prebuild\n' +
+          '2. Build development build (not Expo Go)\n' +
+          '3. Install on device\n\n' +
+          'For now, you can manually import the config to WireGuard app.',
+          [{ text: 'OK' }]
+        );
       }
     } catch (err) {
       const errorMessage = err.message || 'Failed to connect VPN';
@@ -150,11 +214,23 @@ const VpnScreen = () => {
 
     disconnectStart();
     try {
+      // Step 1: Disconnect WireGuard VPN tunnel (if available)
+      if (wireguardAvailable) {
+        try {
+          await WireGuardVpnConnect.disconnect();
+        } catch (wgError) {
+          console.error('WireGuard disconnect error:', wgError);
+          // Continue with backend disconnect even if WireGuard disconnect fails
+        }
+      }
+
+      // Step 2: Disconnect from backend
       await api.disconnectVPN(connectionId);
       disconnectSuccess();
       Toast.success('VPN Disconnected');
     } catch (err) {
       disconnectFailure(err.message);
+      Toast.fail(`Disconnect error: ${err.message}`);
     }
   };
 

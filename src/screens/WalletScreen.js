@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import useWalletStore from '../store/walletStore';
 import blockchain from '../services/blockchain';
@@ -121,19 +120,14 @@ const WalletScreen = () => {
       {connected ? (
         <>
           {/* Connected Wallet Card */}
-          <LinearGradient
-            colors={[COLORS.gradientStart, COLORS.gradientEnd]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.connectedCard}
-          >
+          <View style={styles.connectedCard}>
             <View style={styles.connectedHeader}>
               <MaterialCommunityIcons name="check-circle" size={24} color={COLORS.text} />
               <Text style={styles.connectedText}>Connected</Text>
             </View>
             <Text style={styles.addressText}>{shortenAddress(address)}</Text>
             <Text style={styles.networkText}>{network}</Text>
-          </LinearGradient>
+          </View>
 
           {/* Balance Cards */}
           <View style={styles.balanceContainer}>
@@ -193,17 +187,12 @@ const WalletScreen = () => {
               onPress={handleConnect}
               disabled={loading}
             >
-              <LinearGradient
-                colors={[COLORS.gradientStart, COLORS.gradientEnd]}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-                style={styles.connectButtonGradient}
-              >
+              <View style={styles.connectButtonGradient}>
                 <MaterialCommunityIcons name="wallet-plus" size={24} color={COLORS.text} />
                 <Text style={styles.connectButtonText}>
                   {loading ? 'Connecting...' : 'Connect Wallet'}
                 </Text>
-              </LinearGradient>
+              </View>
             </TouchableOpacity>
 
             {/* Features */}
@@ -240,6 +229,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 24,
     marginBottom: 20,
+    backgroundColor: COLORS.primary,
     shadowColor: COLORS.primary,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
@@ -376,6 +366,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 16,
     borderRadius: 12,
+    backgroundColor: COLORS.primary,
   },
   connectButtonText: {
     color: COLORS.text,

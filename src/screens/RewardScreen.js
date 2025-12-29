@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, RefreshControl, TouchableOpacity } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import useRewardStore from '../store/rewardStore';
 import useWalletStore from '../store/walletStore';
@@ -137,12 +136,7 @@ const RewardScreen = () => {
       }
     >
       {/* Balance Card */}
-      <LinearGradient
-        colors={[COLORS.gradientStart, COLORS.gradientEnd]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.balanceCard}
-      >
+      <View style={styles.balanceCard}>
         <View style={styles.balanceContent}>
           <MaterialCommunityIcons name="wallet" size={40} color={COLORS.text} />
           <View style={styles.balanceTextContainer}>
@@ -150,7 +144,7 @@ const RewardScreen = () => {
             <Text style={styles.balanceValue}>{tokenBalance || '0'} DeVPN</Text>
           </View>
         </View>
-      </LinearGradient>
+      </View>
 
       {!connected && (
         <View style={styles.warningCard}>
@@ -193,16 +187,11 @@ const RewardScreen = () => {
                     onPress={() => handleClaimReward(reward)}
                     disabled={loading}
                   >
-                    <LinearGradient
-                      colors={[COLORS.gradientStart, COLORS.gradientEnd]}
-                      start={{ x: 0, y: 0 }}
-                      end={{ x: 1, y: 1 }}
-                      style={styles.claimButtonGradient}
-                    >
+                    <View style={styles.claimButtonGradient}>
                       <Text style={styles.claimButtonText}>
                         {loading ? 'Claiming...' : 'Claim'}
                       </Text>
-                    </LinearGradient>
+                    </View>
                   </TouchableOpacity>
                 </View>
               ))
@@ -257,6 +246,7 @@ const styles = StyleSheet.create({
     margin: 16,
     borderRadius: 20,
     padding: 24,
+    backgroundColor: COLORS.primary,
     shadowColor: COLORS.primary,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
@@ -359,6 +349,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingVertical: 10,
     borderRadius: 20,
+    backgroundColor: COLORS.primary,
   },
   claimButtonText: {
     color: COLORS.text,

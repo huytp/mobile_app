@@ -22,7 +22,7 @@ export default function TabsLayout() {
           backgroundColor: COLORS.card,
           borderTopColor: COLORS.background,
           borderTopWidth: 1,
-          height: 60 + insets.bottom,
+          height: 70 + insets.bottom,
           paddingTop: 8,
           paddingBottom: Math.max(insets.bottom, 8),
           position: 'absolute',
@@ -40,6 +40,7 @@ export default function TabsLayout() {
           borderBottomColor: COLORS.card,
         },
         headerTintColor: COLORS.text,
+        headerTitleAlign: 'center',
         headerTitleStyle: {
           fontWeight: 'bold',
           fontSize: 20,

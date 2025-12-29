@@ -1,0 +1,380 @@
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/generated/source/buildConfig/debug/com/wireguardvpn/BuildConfig.java b/node_modules/react-native-wireguard-vpn-connect/android/build/generated/source/buildConfig/debug/com/wireguardvpn/BuildConfig.java
+new file mode 100644
+index 0000000..5e0aa73
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/generated/source/buildConfig/debug/com/wireguardvpn/BuildConfig.java
+@@ -0,0 +1,10 @@
++/**
++ * Automatically generated file. DO NOT MODIFY
++ */
++package com.wireguardvpn;
++
++public final class BuildConfig {
++  public static final boolean DEBUG = Boolean.parseBoolean("true");
++  public static final String LIBRARY_PACKAGE_NAME = "com.wireguardvpn";
++  public static final String BUILD_TYPE = "debug";
++}
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
+new file mode 100644
+index 0000000..5691b9b
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
+@@ -0,0 +1,33 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    package="com.wireguardvpn" >
++
++    <uses-sdk android:minSdkVersion="21" />
++
++    <uses-permission android:name="android.permission.INTERNET" />
++    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
++    <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
++
++    <application android:networkSecurityConfig="@xml/network_security_config" >
++        <service
++            android:name="com.wireguardvpn.WireGuardVpnService"
++            android:exported="true"
++            android:permission="android.permission.BIND_VPN_SERVICE" >
++            <intent-filter>
++                <action android:name="android.net.VpnService" />
++            </intent-filter>
++        </service>
++
++        <!-- WireGuard GoBackend Service -->
++        <service
++            android:name="com.wireguard.android.backend.GoBackend$VpnService"
++            android:exported="true"
++            android:permission="android.permission.BIND_VPN_SERVICE" >
++            <intent-filter>
++                <action android:name="android.net.VpnService" />
++            </intent-filter>
++        </service>
++    </application>
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json
+new file mode 100644
+index 0000000..b73a94f
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/output-metadata.json
+@@ -0,0 +1,18 @@
++{
++  "version": 3,
++  "artifactType": {
++    "type": "AAPT_FRIENDLY_MERGED_MANIFESTS",
++    "kind": "Directory"
++  },
++  "applicationId": "com.wireguardvpn",
++  "variantName": "debug",
++  "elements": [
++    {
++      "type": "SINGLE",
++      "filters": [],
++      "attributes": [],
++      "outputFile": "AndroidManifest.xml"
++    }
++  ],
++  "elementType": "File"
++}
+\ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties
+new file mode 100644
+index 0000000..1211b1e
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aar_metadata/debug/writeDebugAarMetadata/aar-metadata.properties
+@@ -0,0 +1,6 @@
++aarFormatVersion=1.0
++aarMetadataVersion=1.0
++minCompileSdk=1
++minCompileSdkExtension=0
++minAndroidGradlePluginVersion=1.0.0
++coreLibraryDesugaringEnabled=false
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json
+new file mode 100644
+index 0000000..9e26dfe
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json
+@@ -0,0 +1 @@
++{}
+\ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar
+new file mode 100644
+index 0000000..760aa34
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/compile_symbol_list/debug/generateDebugRFile/R.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+new file mode 100644
+index 0000000..17be114
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties
+@@ -0,0 +1 @@
++#Mon Dec 29 15:45:35 ICT 2025
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+new file mode 100644
+index 0000000..a7c04b1
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/debug/packageDebugResources/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/debug/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/build/generated/res/resValues/debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/build/generated/res/resValues/debug"/></dataSet><mergedItems/></merger>
+\ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/mergeDebugAssets/merger.xml b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/mergeDebugAssets/merger.xml
+new file mode 100644
+index 0000000..a22b784
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/mergeDebugAssets/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/assets"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/debug/assets"/></dataSet><dataSet config="generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/shader_assets/debug/compileDebugShaders/out"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+new file mode 100644
+index 0000000..d7acd15
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/jniLibs"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/debug/jniLibs"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/mergeDebugShaders/merger.xml b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/mergeDebugShaders/merger.xml
+new file mode 100644
+index 0000000..fea848e
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/incremental/mergeDebugShaders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/shaders"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/debug/shaders"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt
+new file mode 100644
+index 0000000..78ac5b8
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt
+@@ -0,0 +1,2 @@
++R_DEF: Internal format may change without notice
++local
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
+new file mode 100644
+index 0000000..c63ac00
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
+@@ -0,0 +1,55 @@
++1<?xml version="1.0" encoding="utf-8"?>
++2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++3    xmlns:tools="http://schemas.android.com/tools"
++4    package="com.wireguardvpn" >
++5
++6    <uses-sdk android:minSdkVersion="21" />
++7
++8    <uses-permission android:name="android.permission.INTERNET" />
++8-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:5:5-67
++8-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:5:22-64
++9    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
++9-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:6:5-77
++9-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:6:22-74
++10    <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
++10-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:5-75
++10-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:22-72
++11
++12    <application android:networkSecurityConfig="@xml/network_security_config" >
++12-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:5-28:19
++12-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:18-78
++13        <service
++13-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:10:9-17:19
++14            android:name="com.wireguardvpn.WireGuardVpnService"
++14-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:11:13-48
++15            android:exported="true"
++15-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:13:13-36
++16            android:permission="android.permission.BIND_VPN_SERVICE" >
++16-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:12:13-69
++17            <intent-filter>
++17-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:14:13-16:29
++18                <action android:name="android.net.VpnService" />
++18-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:17-65
++18-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:25-62
++19            </intent-filter>
++20        </service>
++21
++22        <!-- WireGuard GoBackend Service -->
++23        <service
++23-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:20:9-27:19
++24            android:name="com.wireguard.android.backend.GoBackend$VpnService"
++24-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:21:13-78
++25            android:exported="true"
++25-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:23:13-36
++26            android:permission="android.permission.BIND_VPN_SERVICE" >
++26-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:22:13-69
++27            <intent-filter>
++27-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:14:13-16:29
++28                <action android:name="android.net.VpnService" />
++28-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:17-65
++28-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:25-62
++29            </intent-filter>
++30        </service>
++31    </application>
++32
++33</manifest>
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
+new file mode 100644
+index 0000000..5691b9b
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
+@@ -0,0 +1,33 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    package="com.wireguardvpn" >
++
++    <uses-sdk android:minSdkVersion="21" />
++
++    <uses-permission android:name="android.permission.INTERNET" />
++    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
++    <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
++
++    <application android:networkSecurityConfig="@xml/network_security_config" >
++        <service
++            android:name="com.wireguardvpn.WireGuardVpnService"
++            android:exported="true"
++            android:permission="android.permission.BIND_VPN_SERVICE" >
++            <intent-filter>
++                <action android:name="android.net.VpnService" />
++            </intent-filter>
++        </service>
++
++        <!-- WireGuard GoBackend Service -->
++        <service
++            android:name="com.wireguard.android.backend.GoBackend$VpnService"
++            android:exported="true"
++            android:permission="android.permission.BIND_VPN_SERVICE" >
++            <intent-filter>
++                <action android:name="android.net.VpnService" />
++            </intent-filter>
++        </service>
++    </application>
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json
+new file mode 100644
+index 0000000..0637a08
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/navigation_json/debug/extractDeepLinksDebug/navigation.json
+@@ -0,0 +1 @@
++[]
+\ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt
+new file mode 100644
+index 0000000..08f4ebe
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt
+@@ -0,0 +1 @@
++0 Warning/Error
+\ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
+new file mode 100644
+index 0000000..0cab381
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
+@@ -0,0 +1 @@
++com.wireguardvpn
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/dirty-sources.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/dirty-sources.txt
+new file mode 100644
+index 0000000..7f5a56a
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/dirty-sources.txt
+@@ -0,0 +1,2 @@
++/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnModule.kt
++/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnPackage.kt
+\ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin
+new file mode 100644
+index 0000000..528ece0
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/outputs/logs/manifest-merger-debug-report.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/outputs/logs/manifest-merger-debug-report.txt
+new file mode 100644
+index 0000000..da55c4b
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/outputs/logs/manifest-merger-debug-report.txt
+@@ -0,0 +1,56 @@
++-- Merging decision tree log ---
++manifest
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:2:1-29:12
++INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:2:1-29:12
++	package
++		INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
++	xmlns:tools
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:3:5-51
++	xmlns:android
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:2:11-69
++uses-permission#android.permission.INTERNET
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:5:5-67
++	android:name
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:5:22-64
++uses-permission#android.permission.FOREGROUND_SERVICE
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:6:5-77
++	android:name
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:6:22-74
++uses-permission#android.permission.BIND_VPN_SERVICE
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:5-75
++	android:name
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:22-72
++application
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:5-28:19
++	android:networkSecurityConfig
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:18-78
++service#com.wireguardvpn.WireGuardVpnService
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:10:9-17:19
++	android:exported
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:13:13-36
++	android:permission
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:12:13-69
++	android:name
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:11:13-48
++intent-filter#action:name:android.net.VpnService
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:14:13-16:29
++action#android.net.VpnService
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:17-65
++	android:name
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:25-62
++service#com.wireguard.android.backend.GoBackend$VpnService
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:20:9-27:19
++	android:exported
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:23:13-36
++	android:permission
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:22:13-69
++	android:name
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:21:13-78
++uses-sdk
++INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
++INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
++INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
++	android:targetSdkVersion
++		INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
++	android:minSdkVersion
++		INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnModule.kt b/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnModule.kt
+index d53a3e3..9840962 100644
+--- a/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnModule.kt
++++ b/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnModule.kt
+@@ -33,7 +33,7 @@ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBa
+             val intent = VpnService.prepare(reactApplicationContext)
+             if (intent != null) {
+                 // VPN permission not granted, need to request it
+-                val activity = currentActivity
++                val activity = reactApplicationContext.currentActivity
+                 if (activity != null) {
+                     activity.startActivityForResult(intent, VPN_REQUEST_CODE)
+                     // We'll handle the result in onActivityResult
+@@ -59,7 +59,7 @@ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBa
+         try {
+             val intent = VpnService.prepare(reactApplicationContext)
+             if (intent != null) {
+-                val activity = currentActivity
++                val activity = reactApplicationContext.currentActivity
+                 if (activity != null) {
+                     activity.startActivityForResult(intent, VPN_REQUEST_CODE)
+                     promise.resolve("PERMISSION_REQUESTED")
