@@ -172,11 +172,45 @@ const VpnScreen = () => {
       // Step 3: Connect using react-native-wireguard-vpn-connect
       if (wireguardAvailable) {
         try {
-          await WireGuardVpnConnect.connect(result.wireguard_config);
+          // Parse WireGuard config string thành object format
+          const configObject = parseWireguardConfigForLibrary(result.wireguard_config);
 
-          // Step 4: Update store with connection info
-          connectSuccess(result);
-          Toast.success('VPN Connected');
+          if (!configObject) {
+            throw new Error('Failed to parse WireGuard config');
+          }
+
+          console.log('Connecting with config object:', {
+            ...configObject,
+            privateKey: configObject.privateKey ? `${configObject.privateKey.substring(0, 10)}...` : 'missing',
+            publicKey: configObject.publicKey ? `${configObject.publicKey.substring(0, 10)}...` : 'missing',
+          });
+
+          // Try to connect
+          try {
+            await WireGuardVpnConnect.connect(configObject);
+
+            // Step 4: Update store with connection info
+            connectSuccess(result);
+            Toast.success('VPN Connected');
+          } catch (connectError) {
+            // Check if it's a permission error
+            const errorMessage = connectError?.message || '';
+            if (errorMessage.includes('VPN_PERMISSION_REQUIRED') || errorMessage.includes('VPN permission')) {
+              // Request VPN permission first
+              try {
+                await WireGuardVpnConnect.requestVpnPermission();
+                // After permission is granted, try connecting again
+                await WireGuardVpnConnect.connect(configObject);
+
+                connectSuccess(result);
+                Toast.success('VPN Connected');
+              } catch (permissionError) {
+                throw new Error(`VPN permission required: ${permissionError?.message || 'Please grant VPN permission in system settings'}`);
+              }
+            } else {
+              throw connectError;
+            }
+          }
         } catch (wgError) {
           // WireGuard connection failed, but backend connection succeeded
           // Still update store but show warning
@@ -363,6 +397,92 @@ const VpnScreen = () => {
       'Your network traffic will now route through the VPN node.',
       [{ text: 'OK' }]
     );
+  };
+
+  // Parse WireGuard config string thành object format cho react-native-wireguard-vpn-connect
+  const parseWireguardConfigForLibrary = (configString) => {
+    if (!configString) return null;
+
+    try {
+      const cleanConfig = configString
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line && !line.startsWith('#'))
+        .join('\n');
+
+      const result = {};
+
+      // Parse [Interface] section
+      const interfaceMatch = cleanConfig.match(/\[Interface\]([\s\S]*?)(?=\[Peer\]|$)/i);
+      if (interfaceMatch) {
+        const interfaceSection = interfaceMatch[1];
+
+        // PrivateKey
+        const privateKeyMatch = interfaceSection.match(/PrivateKey\s*=\s*([^\r\n]+)/i);
+        if (privateKeyMatch) {
+          result.privateKey = privateKeyMatch[1].trim();
+        }
+
+        // DNS - có thể có nhiều DNS servers, split by comma
+        const dnsMatch = interfaceSection.match(/DNS\s*=\s*([^\r\n]+)/i);
+        if (dnsMatch) {
+          const dnsString = dnsMatch[1].trim();
+          result.dns = dnsString.split(',').map(d => d.trim()).filter(d => d);
+        }
+
+        // Address - dùng để tạo allowedIPs nếu cần
+        const addressMatch = interfaceSection.match(/Address\s*=\s*([^\r\n]+)/i);
+        if (addressMatch) {
+          result.clientAddress = addressMatch[1].trim();
+        }
+      }
+
+      // Parse [Peer] section
+      const peerMatch = cleanConfig.match(/\[Peer\]([\s\S]*?)$/i);
+      if (peerMatch) {
+        const peerSection = peerMatch[1];
+
+        // PublicKey
+        const publicKeyMatch = peerSection.match(/PublicKey\s*=\s*([^\r\n]+)/i);
+        if (publicKeyMatch) {
+          result.publicKey = publicKeyMatch[1].trim();
+        }
+
+        // Endpoint - parse thành serverAddress và serverPort
+        const endpointMatch = peerSection.match(/Endpoint\s*=\s*([^\r\n]+)/i);
+        if (endpointMatch) {
+          const endpoint = endpointMatch[1].trim();
+          const [address, port] = endpoint.split(':');
+          if (address && port) {
+            result.serverAddress = address.trim();
+            result.serverPort = parseInt(port.trim(), 10);
+          }
+        }
+
+        // AllowedIPs - có thể có nhiều IPs, split by comma
+        const allowedIPsMatch = peerSection.match(/AllowedIPs\s*=\s*([^\r\n]+)/i);
+        if (allowedIPsMatch) {
+          const allowedIPsString = allowedIPsMatch[1].trim();
+          result.allowedIPs = allowedIPsString.split(',').map(ip => ip.trim()).filter(ip => ip);
+        }
+
+        // PresharedKey (optional)
+        const presharedKeyMatch = peerSection.match(/PresharedKey\s*=\s*([^\r\n]+)/i);
+        if (presharedKeyMatch) {
+          result.presharedKey = presharedKeyMatch[1].trim();
+        }
+      }
+
+      // Validate required fields
+      if (!result.privateKey || !result.publicKey || !result.serverAddress || !result.serverPort || !result.allowedIPs) {
+        throw new Error('Missing required fields in WireGuard config');
+      }
+
+      return result;
+    } catch (err) {
+      console.error('Failed to parse WireGuard config:', err);
+      throw new Error(`Failed to parse WireGuard config: ${err.message}`);
+    }
   };
 
   // Parse WireGuard config để hiển thị thông tin chi tiết
