@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Share, Platform, Linking } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+// import { LinearGradient } from 'expo-linear-gradient'; // Temporarily disabled
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import * as Clipboard from 'expo-clipboard';
+// import * as Clipboard from 'expo-clipboard'; // Temporarily disabled due to native module issues
 import * as FileSystem from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
 import useVpnStore from '../store/vpnStore';
@@ -200,10 +200,15 @@ const VpnScreen = () => {
 
   const handleCopyConfig = async (config) => {
     try {
-      await Clipboard.setStringAsync(config);
-      Toast.success('WireGuard config copied to clipboard!');
+      // Using Share API instead of Clipboard (temporarily disabled due to native module issues)
+      await Share.share({
+        message: config,
+        title: 'WireGuard Config'
+      });
+      Toast.success('WireGuard config shared!');
     } catch (err) {
-      Toast.fail('Failed to copy config');
+      console.error('Share error:', err);
+      Toast.fail('Failed to share config');
     }
   };
 
@@ -237,7 +242,7 @@ const VpnScreen = () => {
             });
             Toast.success('Share config file to WireGuard');
           } else {
-            // Fallback: copy to clipboard
+            // Fallback: share config
             await handleCopyConfig(config);
             Alert.alert(
               'WireGuard App Not Found',
@@ -245,30 +250,30 @@ const VpnScreen = () => {
               '1. Open WireGuard app\n' +
               '2. Tap "+" button\n' +
               '3. Select "Create from file or archive"\n' +
-              '4. Paste the config (already copied to clipboard)\n\n' +
+              '4. Use the shared config from the share dialog\n\n' +
               'Or use the Share button to share the config file.',
               [{ text: 'OK' }]
             );
           }
         }
       } else {
-        // Android: copy và hướng dẫn
+        // Android: share và hướng dẫn
         await handleCopyConfig(config);
         Alert.alert(
           'Import WireGuard Config',
-          'Config copied to clipboard!\n\n' +
+          'Config shared!\n\n' +
           '1. Open WireGuard app\n' +
           '2. Tap "+" button\n' +
           '3. Select "Create from file or archive"\n' +
-          '4. Paste the config\n' +
+          '4. Use the shared config from the share dialog\n' +
           '5. Save and activate',
           [{ text: 'OK' }]
         );
       }
     } catch (err) {
-      // Fallback to copy
+      // Fallback to share
       await handleCopyConfig(config);
-      Toast.fail('Failed to auto-import. Config copied to clipboard.');
+      Toast.fail('Failed to auto-import. Config shared via Share dialog.');
     }
   };
 
@@ -366,12 +371,10 @@ const VpnScreen = () => {
           disabled={status === 'connecting' || status === 'disconnecting'}
           activeOpacity={0.8}
         >
-          <LinearGradient
-            colors={status === 'connected' ? [COLORS.gradientStart, COLORS.gradientEnd] : [COLORS.textMuted, COLORS.textSecondary]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.gradientBorder}
-          >
+          <View style={[
+            styles.gradientBorder,
+            { backgroundColor: status === 'connected' ? COLORS.gradientStart : COLORS.textMuted }
+          ]}>
             <View style={styles.circleInner}>
               <MaterialCommunityIcons
                 name={status === 'connected' ? 'lock' : 'lock-open'}
@@ -385,7 +388,7 @@ const VpnScreen = () => {
                 <Text style={styles.timerText}>{formatTime(connectionTime)}</Text>
               )}
             </View>
-          </LinearGradient>
+          </View>
         </TouchableOpacity>
       </View>
 
