@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import React, { useEffect, useState, useRef } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert, Animated } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 // Import WireGuard VPN Connect (may not be available in Expo Go)
 let WireGuardVpnConnect = null;
@@ -16,6 +17,7 @@ import Toast from '../components/Toast';
 import { COLORS } from '../utils/constants';
 
 const VpnScreen = () => {
+  const insets = useSafeAreaInsets();
   const {
     status,
     connectionId,
@@ -44,6 +46,70 @@ const VpnScreen = () => {
   });
   const [isMeasuringSpeed, setIsMeasuringSpeed] = useState(false);
   const [wireguardAvailable, setWireguardAvailable] = useState(false);
+  const [publicIP, setPublicIP] = useState(null);
+
+  // Animation values
+  const pulseAnim = useRef(new Animated.Value(1)).current;
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  // Calculate bottom padding to avoid tab bar (tab bar height: 70 + insets.bottom)
+  const tabBarHeight = 70 + insets.bottom;
+
+  // Fetch public IP address
+  const fetchPublicIP = async () => {
+    try {
+      // Try multiple services for reliability
+      const services = [
+        { url: 'https://api.ipify.org?format=json', isJson: true },
+        { url: 'https://api64.ipify.org?format=json', isJson: true },
+        { url: 'https://ifconfig.me/ip', isJson: false },
+      ];
+
+      for (const service of services) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+          const response = await fetch(service.url, {
+            signal: controller.signal
+          });
+
+          clearTimeout(timeoutId);
+
+          if (response.ok) {
+            if (service.isJson) {
+              const data = await response.json();
+              const ip = data.ip;
+              if (ip) {
+                setPublicIP(ip);
+                return;
+              }
+            } else {
+              const text = await response.text();
+              const ip = text.trim();
+              if (ip && /^\d+\.\d+\.\d+\.\d+$/.test(ip)) {
+                setPublicIP(ip);
+                return;
+              }
+            }
+          }
+        } catch (err) {
+          // Try next service
+          continue;
+        }
+      }
+      // If all services failed, set to N/A
+      setPublicIP('N/A');
+    } catch (err) {
+      console.warn('Failed to fetch public IP:', err);
+      setPublicIP('N/A');
+    }
+  };
+
+  // Fetch public IP on mount
+  useEffect(() => {
+    fetchPublicIP();
+  }, []);
 
   // Check if WireGuard library is available (won't work in Expo Go)
   useEffect(() => {
@@ -104,6 +170,68 @@ const VpnScreen = () => {
       Toast.fail(error);
     }
   }, [error]);
+
+  // Update public IP when VPN status changes
+  useEffect(() => {
+    let timer1, timer2;
+
+    if (status === 'connected') {
+      // Wait a bit for VPN tunnel to fully establish before checking IP
+      // Use longer delay to ensure tunnel is fully established
+      timer1 = setTimeout(() => {
+        fetchPublicIP();
+        // Also retry after a bit more time in case first check was too early
+        timer2 = setTimeout(() => {
+          fetchPublicIP();
+        }, 3000);
+      }, 3000);
+    } else if (status === 'disconnected') {
+      // Update IP after a short delay when disconnected to allow tunnel to close
+      timer1 = setTimeout(() => {
+        fetchPublicIP();
+      }, 1500);
+    }
+
+    return () => {
+      if (timer1) clearTimeout(timer1);
+      if (timer2) clearTimeout(timer2);
+    };
+  }, [status]);
+
+  // Pulse animation when connected
+  useEffect(() => {
+    if (status === 'connected') {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(pulseAnim, {
+            toValue: 1.05,
+            duration: 1500,
+            useNativeDriver: true,
+          }),
+          Animated.timing(pulseAnim, {
+            toValue: 1,
+            duration: 1500,
+            useNativeDriver: true,
+          }),
+        ])
+      ).start();
+    } else {
+      pulseAnim.setValue(1);
+    }
+  }, [status]);
+
+  // Fade in animation for connection info
+  useEffect(() => {
+    if (status === 'connected') {
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 500,
+        useNativeDriver: true,
+      }).start();
+    } else {
+      fadeAnim.setValue(0);
+    }
+  }, [status]);
 
   useEffect(() => {
     let interval;
@@ -485,136 +613,247 @@ const VpnScreen = () => {
   };
 
   return (
-    <ScrollView
-      style={styles.container}
-      contentContainerStyle={styles.containerContent}
-      showsVerticalScrollIndicator={false}
-    >
-      {/* Status Text */}
-      <View style={styles.statusHeader}>
-        <Text style={styles.statusLabel}>Status: </Text>
-        <Text style={[styles.statusText, { color: getStatusColor() }]}>
-          {getStatusText()}
-        </Text>
-      </View>
-
-      {/* Main Circular Button */}
-      <View style={styles.circleContainer}>
-        <TouchableOpacity
-          style={styles.circleButton}
-          onPress={handleToggleConnection}
-          disabled={status === 'connecting' || status === 'disconnecting'}
-          activeOpacity={0.8}
-        >
-          <View style={[
-            styles.gradientBorder,
-            { backgroundColor: status === 'connected' ? COLORS.gradientStart : COLORS.textMuted }
-          ]}>
-            <View style={styles.circleInner}>
-              <MaterialCommunityIcons
-                name={status === 'connected' ? 'lock' : 'lock-open'}
-                size={48}
-                color={status === 'connected' ? COLORS.gradientStart : COLORS.textMuted}
-              />
-              <Text style={styles.buttonText}>
-                {status === 'connected' ? 'STOP' : 'START'}
-              </Text>
-              {status === 'connected' && (
-                <Text style={styles.timerText}>{formatTime(connectionTime)}</Text>
-              )}
-            </View>
+    <View style={styles.container}>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={[
+          styles.containerContent,
+          { paddingBottom: tabBarHeight + 20 }
+        ]}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Header Card */}
+        <View style={styles.headerCard}>
+          <View style={styles.statusRow}>
+            <View style={[styles.statusDot, { backgroundColor: getStatusColor() }]} />
+            <Text style={styles.statusLabel}>STATUS</Text>
           </View>
-        </TouchableOpacity>
-      </View>
+          <Text style={[styles.statusText, { color: getStatusColor() }]}>
+            {getStatusText()}
+          </Text>
+
+          {/* Public IP Card */}
+          <View style={styles.ipCard}>
+            <MaterialCommunityIcons name="earth" size={18} color={COLORS.primary} />
+            <View style={styles.ipInfo}>
+              <Text style={styles.ipLabelSmall}>Your IP Address</Text>
+              <Text style={styles.ipValueLarge}>{publicIP || 'Detecting...'}</Text>
+            </View>
+            <MaterialCommunityIcons
+              name={status === 'connected' ? 'shield-check' : 'shield-alert'}
+              size={24}
+              color={status === 'connected' ? COLORS.success : COLORS.textSecondary}
+            />
+          </View>
+        </View>
+
+        {/* Main Circular Button */}
+        <View style={styles.circleContainer}>
+          <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
+            <TouchableOpacity
+              style={styles.circleButton}
+              onPress={handleToggleConnection}
+              disabled={status === 'connecting' || status === 'disconnecting'}
+              activeOpacity={0.8}
+            >
+              <View style={[
+                styles.gradientBorder,
+                {
+                  backgroundColor: status === 'connected' ? COLORS.success : '#2a2e45',
+                  borderColor: status === 'connected' ? COLORS.success : '#3a3e55'
+                }
+              ]}>
+                <View style={styles.circleInner}>
+                  <MaterialCommunityIcons
+                    name={status === 'connected' ? 'shield-check' : 'shield-off-outline'}
+                    size={56}
+                    color={status === 'connected' ? COLORS.success : COLORS.textSecondary}
+                  />
+                  <Text style={[styles.buttonText, {
+                    color: status === 'connected' ? COLORS.success : COLORS.text
+                  }]}>
+                    {status === 'connected' ? 'PROTECTED' : status === 'connecting' ? 'CONNECTING' : 'TAP TO CONNECT'}
+                  </Text>
+                  {status === 'connected' && (
+                    <Text style={styles.timerText}>{formatTime(connectionTime)}</Text>
+                  )}
+                </View>
+              </View>
+            </TouchableOpacity>
+          </Animated.View>
+        </View>
 
       {/* Connection Info */}
       {status === 'connected' && (
-        <View style={styles.connectionInfo}>
-          <View style={styles.infoRow}>
-            <MaterialCommunityIcons name="server-network" size={16} color={COLORS.textSecondary} />
-            <Text style={styles.infoLabel}>Entry: </Text>
-            <Text style={styles.infoValue}>{entryNode?.slice(0, 12)}...</Text>
-          </View>
-          <View style={styles.infoRow}>
-            <MaterialCommunityIcons name="server-network-outline" size={16} color={COLORS.textSecondary} />
-            <Text style={styles.infoLabel}>Exit: </Text>
-            <Text style={styles.infoValue}>{exitNode?.slice(0, 12)}...</Text>
-          </View>
-          {routeScore && (
-            <View style={styles.infoRow}>
-              <MaterialCommunityIcons name="chart-line" size={16} color={COLORS.textSecondary} />
-              <Text style={styles.infoLabel}>Score: </Text>
-              <Text style={styles.infoValue}>{(routeScore * 100).toFixed(1)}%</Text>
+        <Animated.View style={[styles.connectionInfo, { opacity: fadeAnim }]}>
+          {/* Route Info Card */}
+          <View style={styles.infoCard}>
+            <Text style={styles.cardTitle}>
+              <MaterialCommunityIcons name="routes" size={18} color={COLORS.primary} /> Route Information
+            </Text>
+
+            <View style={styles.routeItem}>
+              <View style={styles.routeIconContainer}>
+                <MaterialCommunityIcons name="server-network" size={20} color={COLORS.success} />
+              </View>
+              <View style={styles.routeDetails}>
+                <Text style={styles.routeLabel}>Entry Node</Text>
+                <Text style={styles.routeValue}>{entryNode?.slice(0, 16)}...</Text>
+              </View>
             </View>
-          )}
+
+            <View style={styles.routeDivider}>
+              <MaterialCommunityIcons name="chevron-down" size={20} color={COLORS.textSecondary} />
+            </View>
+
+            <View style={styles.routeItem}>
+              <View style={styles.routeIconContainer}>
+                <MaterialCommunityIcons name="server-network-outline" size={20} color={COLORS.primary} />
+              </View>
+              <View style={styles.routeDetails}>
+                <Text style={styles.routeLabel}>Exit Node</Text>
+                <Text style={styles.routeValue}>{exitNode?.slice(0, 16)}...</Text>
+              </View>
+            </View>
+
+            {routeScore && (
+              <View style={styles.scoreContainer}>
+                <MaterialCommunityIcons name="chart-line" size={16} color={COLORS.warning} />
+                <Text style={styles.scoreLabel}>Route Score: </Text>
+                <Text style={styles.scoreValue}>{(routeScore * 100).toFixed(1)}%</Text>
+              </View>
+            )}
+          </View>
 
           {/* Network Speed Stats */}
           <View style={styles.speedSection}>
-            <Text style={styles.speedTitle}>Network Speed</Text>
+            <Text style={styles.cardTitle}>
+              <MaterialCommunityIcons name="speedometer" size={18} color={COLORS.primary} /> Network Performance
+            </Text>
+
             <View style={styles.speedGrid}>
               <View style={styles.speedCard}>
-                <MaterialCommunityIcons name="download" size={24} color={COLORS.primary} />
-                <Text style={styles.speedValue}>
-                  {networkStats.downloadSpeed > 0
-                    ? `${networkStats.downloadSpeed.toFixed(2)} Mbps`
-                    : networkStats.currentSpeed > 0
-                    ? `${networkStats.currentSpeed.toFixed(2)} Mbps`
-                    : '--'}
-                </Text>
-                <Text style={styles.speedLabel}>Download</Text>
+                <View style={[styles.speedCardGradient, styles.speedCardBlue]}>
+                  <MaterialCommunityIcons name="download" size={28} color={COLORS.primary} />
+                  <Text style={styles.speedValue}>
+                    {networkStats.downloadSpeed > 0
+                      ? `${networkStats.downloadSpeed.toFixed(1)}`
+                      : networkStats.currentSpeed > 0
+                      ? `${networkStats.currentSpeed.toFixed(1)}`
+                      : '--'}
+                  </Text>
+                  <Text style={styles.speedUnit}>Mbps</Text>
+                  <Text style={styles.speedLabel}>Download</Text>
+                </View>
               </View>
+
               <View style={styles.speedCard}>
-                <MaterialCommunityIcons name="speedometer" size={24} color={COLORS.success} />
-                <Text style={styles.speedValue}>
-                  {networkStats.latency > 0 ? `${networkStats.latency} ms` : '--'}
-                </Text>
-                <Text style={styles.speedLabel}>Latency</Text>
+                <View style={[styles.speedCardGradient, styles.speedCardGreen]}>
+                  <MaterialCommunityIcons name="speedometer" size={28} color={COLORS.success} />
+                  <Text style={styles.speedValue}>
+                    {networkStats.latency > 0 ? `${networkStats.latency}` : '--'}
+                  </Text>
+                  <Text style={styles.speedUnit}>ms</Text>
+                  <Text style={styles.speedLabel}>Latency</Text>
+                </View>
               </View>
             </View>
+
             {networkStats.totalTraffic > 0 && (
               <View style={styles.trafficRow}>
-                <MaterialCommunityIcons name="database" size={16} color={COLORS.textSecondary} />
+                <MaterialCommunityIcons name="database" size={18} color={COLORS.warning} />
                 <Text style={styles.trafficText}>
-                  Total Traffic: {networkStats.totalTraffic.toFixed(2)} MB
+                  Total Data: {networkStats.totalTraffic.toFixed(2)} MB
                 </Text>
               </View>
             )}
           </View>
-        </View>
+        </Animated.View>
       )}
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.background,
+    backgroundColor: '#0a0e1f',
+  },
+  scrollView: {
+    flex: 1,
   },
   containerContent: {
     paddingHorizontal: 20,
-    paddingTop: 40,
+    paddingTop: 20,
     paddingBottom: 40,
   },
-  statusHeader: {
+  headerCard: {
+    backgroundColor: 'rgba(26, 30, 53, 0.8)',
+    borderRadius: 20,
+    padding: 20,
+    marginBottom: 24,
+    borderWidth: 1,
+    borderColor: 'rgba(99, 102, 241, 0.2)',
+    shadowColor: '#6366f1',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  statusRow: {
     flexDirection: 'row',
-    justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 30,
+    marginBottom: 8,
+  },
+  statusDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginRight: 8,
   },
   statusLabel: {
-    fontSize: 20,
-    color: COLORS.text,
-    fontWeight: '400',
+    fontSize: 12,
+    color: COLORS.textSecondary,
+    fontWeight: '600',
+    letterSpacing: 1.5,
   },
   statusText: {
-    fontSize: 20,
+    fontSize: 28,
     fontWeight: 'bold',
+    marginBottom: 16,
+    letterSpacing: 0.5,
+  },
+  ipCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(15, 23, 42, 0.6)',
+    borderRadius: 12,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(99, 102, 241, 0.15)',
+  },
+  ipInfo: {
+    flex: 1,
+    marginLeft: 12,
+  },
+  ipLabelSmall: {
+    fontSize: 11,
+    color: COLORS.textSecondary,
+    marginBottom: 4,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  ipValueLarge: {
+    fontSize: 16,
+    color: COLORS.text,
+    fontWeight: 'bold',
+    fontFamily: 'monospace',
   },
   circleContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 20,
+    marginVertical: 30,
   },
   circleButton: {
     width: 280,
@@ -624,98 +863,189 @@ const styles = StyleSheet.create({
     width: 280,
     height: 280,
     borderRadius: 140,
-    padding: 8,
+    padding: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 3,
+    shadowColor: '#6366f1',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 16,
+    elevation: 10,
   },
   circleInner: {
-    width: 264,
-    height: 264,
-    borderRadius: 132,
-    backgroundColor: COLORS.backgroundLight,
+    width: 260,
+    height: 260,
+    borderRadius: 130,
+    backgroundColor: 'rgba(15, 23, 42, 0.95)',
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(99, 102, 241, 0.2)',
   },
   buttonText: {
-    fontSize: 28,
+    fontSize: 18,
     fontWeight: 'bold',
-    color: COLORS.text,
-    marginTop: 12,
+    marginTop: 16,
+    letterSpacing: 1,
   },
   timerText: {
-    fontSize: 18,
-    color: COLORS.textSecondary,
-    marginTop: 8,
+    fontSize: 20,
+    color: COLORS.success,
+    marginTop: 12,
     fontFamily: 'monospace',
+    fontWeight: '600',
   },
   connectionInfo: {
-    marginVertical: 20,
-    alignItems: 'center',
     width: '100%',
   },
-  infoRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 4,
+  infoCard: {
+    backgroundColor: 'rgba(26, 30, 53, 0.8)',
+    borderRadius: 16,
+    padding: 20,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(99, 102, 241, 0.2)',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 3,
   },
-  infoLabel: {
-    fontSize: 14,
-    color: COLORS.textSecondary,
-    marginLeft: 6,
-  },
-  infoValue: {
-    fontSize: 14,
-    color: COLORS.text,
-    fontFamily: 'monospace',
-  },
-  speedSection: {
-    marginTop: 20,
-    padding: 16,
-    backgroundColor: COLORS.card,
-    borderRadius: 12,
-    width: '100%',
-  },
-  speedTitle: {
+  cardTitle: {
     fontSize: 16,
     fontWeight: 'bold',
     color: COLORS.text,
-    marginBottom: 12,
-    textAlign: 'center',
+    marginBottom: 16,
+    letterSpacing: 0.5,
+  },
+  routeItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 12,
+  },
+  routeIconContainer: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(99, 102, 241, 0.15)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+  },
+  routeDetails: {
+    flex: 1,
+  },
+  routeLabel: {
+    fontSize: 12,
+    color: COLORS.textSecondary,
+    marginBottom: 4,
+  },
+  routeValue: {
+    fontSize: 14,
+    color: COLORS.text,
+    fontFamily: 'monospace',
+    fontWeight: '500',
+  },
+  routeDivider: {
+    alignItems: 'center',
+    marginVertical: 4,
+  },
+  scoreContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 12,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(99, 102, 241, 0.15)',
+  },
+  scoreLabel: {
+    fontSize: 13,
+    color: COLORS.textSecondary,
+    marginLeft: 6,
+  },
+  scoreValue: {
+    fontSize: 15,
+    color: COLORS.warning,
+    fontWeight: 'bold',
+    fontFamily: 'monospace',
+  },
+  speedSection: {
+    backgroundColor: 'rgba(26, 30, 53, 0.8)',
+    borderRadius: 16,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(99, 102, 241, 0.2)',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 3,
   },
   speedGrid: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 12,
+    gap: 12,
+    marginTop: 12,
   },
   speedCard: {
-    alignItems: 'center',
     flex: 1,
   },
+  speedCardGradient: {
+    borderRadius: 12,
+    padding: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 140,
+    borderWidth: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  speedCardBlue: {
+    backgroundColor: '#1e3a8a',
+    borderColor: '#3b82f6',
+  },
+  speedCardGreen: {
+    backgroundColor: '#065f46',
+    borderColor: '#10b981',
+  },
   speedValue: {
-    fontSize: 18,
+    fontSize: 32,
     fontWeight: 'bold',
     color: COLORS.text,
     marginTop: 8,
     fontFamily: 'monospace',
+  },
+  speedUnit: {
+    fontSize: 14,
+    color: COLORS.textSecondary,
+    marginTop: 2,
+    fontWeight: '600',
   },
   speedLabel: {
     fontSize: 12,
     color: COLORS.textSecondary,
-    marginTop: 4,
+    marginTop: 8,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   trafficRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 8,
-    paddingTop: 12,
+    marginTop: 16,
+    paddingTop: 16,
     borderTopWidth: 1,
-    borderTopColor: COLORS.backgroundLight,
+    borderTopColor: 'rgba(99, 102, 241, 0.15)',
   },
   trafficText: {
-    fontSize: 12,
+    fontSize: 13,
     color: COLORS.textSecondary,
-    marginLeft: 6,
+    marginLeft: 8,
+    fontWeight: '500',
   },
 });
 
