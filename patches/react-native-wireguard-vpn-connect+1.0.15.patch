@@ -1,3 +1,61 @@
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/results.bin b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/results.bin
+new file mode 100644
+index 0000000..7ed749e
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/results.bin
+@@ -0,0 +1 @@
++o/bundleLibRuntimeToDirDebug
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/BuildConfig.dex b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/BuildConfig.dex
+new file mode 100644
+index 0000000..bec84b5
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/BuildConfig.dex differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule$Companion.dex b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule$Companion.dex
+new file mode 100644
+index 0000000..b0b4810
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule$Companion.dex differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule$connect$5.dex b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule$connect$5.dex
+new file mode 100644
+index 0000000..dc2b75e
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule$connect$5.dex differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule$startStatsUpdater$1.dex b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule$startStatsUpdater$1.dex
+new file mode 100644
+index 0000000..ec7de4b
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule$startStatsUpdater$1.dex differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule.dex b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule.dex
+new file mode 100644
+index 0000000..1810bb4
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnModule.dex differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnPackage.dex b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnPackage.dex
+new file mode 100644
+index 0000000..64a2546
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnPackage.dex differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnService$Companion.dex b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnService$Companion.dex
+new file mode 100644
+index 0000000..3573b2e
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnService$Companion.dex differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnService$startStatsUpdater$1.dex b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnService$startStatsUpdater$1.dex
+new file mode 100644
+index 0000000..66a94e4
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnService$startStatsUpdater$1.dex differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnService.dex b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnService.dex
+new file mode 100644
+index 0000000..73ec43a
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/bundleLibRuntimeToDirDebug_dex/com/wireguardvpn/WireGuardVpnService.dex differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin
+new file mode 100644
+index 0000000..601f245
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/348108001696218d984b7537d41cea44/transformed/bundleLibRuntimeToDirDebug/desugar_graph.bin differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/97af364bd20087351a76f7e04d644d66/results.bin b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/97af364bd20087351a76f7e04d644d66/results.bin
+new file mode 100644
+index 0000000..0d259dd
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/97af364bd20087351a76f7e04d644d66/results.bin
+@@ -0,0 +1 @@
++o/classes
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/97af364bd20087351a76f7e04d644d66/transformed/classes/classes_dex/classes.dex b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/97af364bd20087351a76f7e04d644d66/transformed/classes/classes_dex/classes.dex
+new file mode 100644
+index 0000000..bae5ec0
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/.transforms/97af364bd20087351a76f7e04d644d66/transformed/classes/classes_dex/classes.dex differ
 diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/generated/source/buildConfig/debug/com/wireguardvpn/BuildConfig.java b/node_modules/react-native-wireguard-vpn-connect/android/build/generated/source/buildConfig/debug/com/wireguardvpn/BuildConfig.java
 new file mode 100644
 index 0000000..5e0aa73
@@ -16,10 +74,10 @@ index 0000000..5e0aa73
 +}
 diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
 new file mode 100644
-index 0000000..5691b9b
+index 0000000..c449461
 --- /dev/null
 +++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/aapt_friendly_merged_manifests/debug/processDebugManifest/aapt/AndroidManifest.xml
-@@ -0,0 +1,33 @@
+@@ -0,0 +1,40 @@
 +<?xml version="1.0" encoding="utf-8"?>
 +<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 +    xmlns:tools="http://schemas.android.com/tools"
@@ -29,16 +87,23 @@ index 0000000..5691b9b
 +
 +    <uses-permission android:name="android.permission.INTERNET" />
 +    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
++    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
++    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 +    <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
 +
 +    <application android:networkSecurityConfig="@xml/network_security_config" >
 +        <service
 +            android:name="com.wireguardvpn.WireGuardVpnService"
 +            android:exported="true"
++            android:foregroundServiceType="specialUse"
 +            android:permission="android.permission.BIND_VPN_SERVICE" >
 +            <intent-filter>
 +                <action android:name="android.net.VpnService" />
 +            </intent-filter>
++
++            <property
++                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
++                android:value="VPN connection service" />
 +        </service>
 +
 +        <!-- WireGuard GoBackend Service -->
@@ -99,6 +164,10 @@ index 0000000..9e26dfe
 @@ -0,0 +1 @@
 +{}
 \ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar
+new file mode 100644
+index 0000000..c9e66ae
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/compile_library_classes_jar/debug/bundleLibCompileToJarDebug/classes.jar differ
 diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/compile_r_class_jar/debug/generateDebugRFile/R.jar
 new file mode 100644
 index 0000000..760aa34
@@ -149,6 +218,14 @@ index 0000000..fea848e
 +<?xml version="1.0" encoding="utf-8"?>
 +<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/shaders"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/debug/shaders"/></dataSet></merger>
 \ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/react-native-wireguard-vpn-connect_debug.kotlin_module b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/react-native-wireguard-vpn-connect_debug.kotlin_module
+new file mode 100644
+index 0000000..9dbc290
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/java_res/debug/processDebugJavaRes/out/META-INF/react-native-wireguard-vpn-connect_debug.kotlin_module differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/wireguardvpn/BuildConfig.class b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/wireguardvpn/BuildConfig.class
+new file mode 100644
+index 0000000..4d8f8d9
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/wireguardvpn/BuildConfig.class differ
 diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt
 new file mode 100644
 index 0000000..78ac5b8
@@ -159,10 +236,10 @@ index 0000000..78ac5b8
 +local
 diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
 new file mode 100644
-index 0000000..c63ac00
+index 0000000..6c765aa
 --- /dev/null
 +++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/manifest_merge_blame_file/debug/processDebugManifest/manifest-merger-blame-debug-report.txt
-@@ -0,0 +1,55 @@
+@@ -0,0 +1,70 @@
 +1<?xml version="1.0" encoding="utf-8"?>
 +2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 +3    xmlns:tools="http://schemas.android.com/tools"
@@ -176,54 +253,69 @@ index 0000000..c63ac00
 +9    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 +9-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:6:5-77
 +9-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:6:22-74
-+10    <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
-+10-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:5-75
-+10-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:22-72
-+11
-+12    <application android:networkSecurityConfig="@xml/network_security_config" >
-+12-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:5-28:19
-+12-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:18-78
-+13        <service
-+13-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:10:9-17:19
-+14            android:name="com.wireguardvpn.WireGuardVpnService"
-+14-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:11:13-48
-+15            android:exported="true"
-+15-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:13:13-36
-+16            android:permission="android.permission.BIND_VPN_SERVICE" >
-+16-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:12:13-69
-+17            <intent-filter>
-+17-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:14:13-16:29
-+18                <action android:name="android.net.VpnService" />
-+18-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:17-65
-+18-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:25-62
-+19            </intent-filter>
-+20        </service>
-+21
-+22        <!-- WireGuard GoBackend Service -->
-+23        <service
-+23-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:20:9-27:19
-+24            android:name="com.wireguard.android.backend.GoBackend$VpnService"
-+24-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:21:13-78
-+25            android:exported="true"
-+25-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:23:13-36
-+26            android:permission="android.permission.BIND_VPN_SERVICE" >
-+26-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:22:13-69
-+27            <intent-filter>
-+27-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:14:13-16:29
-+28                <action android:name="android.net.VpnService" />
-+28-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:17-65
-+28-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:25-62
-+29            </intent-filter>
-+30        </service>
-+31    </application>
-+32
-+33</manifest>
++10    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
++10-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:5-89
++10-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:22-86
++11    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
++11-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:8:5-77
++11-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:8:22-74
++12    <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
++12-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:5-75
++12-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:22-72
++13
++14    <application android:networkSecurityConfig="@xml/network_security_config" >
++14-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:11:5-34:19
++14-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:11:18-78
++15        <service
++15-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:12:9-23:19
++16            android:name="com.wireguardvpn.WireGuardVpnService"
++16-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:13:13-48
++17            android:exported="true"
++17-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:13-36
++18            android:foregroundServiceType="specialUse"
++18-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:16:13-55
++19            android:permission="android.permission.BIND_VPN_SERVICE" >
++19-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:14:13-69
++20            <intent-filter>
++20-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:17:13-19:29
++21                <action android:name="android.net.VpnService" />
++21-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:18:17-65
++21-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:18:25-62
++22            </intent-filter>
++23
++24            <property
++24-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:20:13-22:58
++25                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
++25-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:21:17-76
++26                android:value="VPN connection service" />
++26-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:22:17-55
++27        </service>
++28
++29        <!-- WireGuard GoBackend Service -->
++30        <service
++30-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:26:9-33:19
++31            android:name="com.wireguard.android.backend.GoBackend$VpnService"
++31-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:27:13-78
++32            android:exported="true"
++32-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:29:13-36
++33            android:permission="android.permission.BIND_VPN_SERVICE" >
++33-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:28:13-69
++34            <intent-filter>
++34-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:17:13-19:29
++35                <action android:name="android.net.VpnService" />
++35-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:18:17-65
++35-->/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:18:25-62
++36            </intent-filter>
++37        </service>
++38    </application>
++39
++40</manifest>
 diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
 new file mode 100644
-index 0000000..5691b9b
+index 0000000..c449461
 --- /dev/null
 +++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml
-@@ -0,0 +1,33 @@
+@@ -0,0 +1,40 @@
 +<?xml version="1.0" encoding="utf-8"?>
 +<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 +    xmlns:tools="http://schemas.android.com/tools"
@@ -233,16 +325,23 @@ index 0000000..5691b9b
 +
 +    <uses-permission android:name="android.permission.INTERNET" />
 +    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
++    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
++    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 +    <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
 +
 +    <application android:networkSecurityConfig="@xml/network_security_config" >
 +        <service
 +            android:name="com.wireguardvpn.WireGuardVpnService"
 +            android:exported="true"
++            android:foregroundServiceType="specialUse"
 +            android:permission="android.permission.BIND_VPN_SERVICE" >
 +            <intent-filter>
 +                <action android:name="android.net.VpnService" />
 +            </intent-filter>
++
++            <property
++                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
++                android:value="VPN connection service" />
 +        </service>
 +
 +        <!-- WireGuard GoBackend Service -->
@@ -274,6 +373,50 @@ index 0000000..08f4ebe
 @@ -0,0 +1 @@
 +0 Warning/Error
 \ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/META-INF/react-native-wireguard-vpn-connect_debug.kotlin_module b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/META-INF/react-native-wireguard-vpn-connect_debug.kotlin_module
+new file mode 100644
+index 0000000..9dbc290
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/META-INF/react-native-wireguard-vpn-connect_debug.kotlin_module differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/BuildConfig.class b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/BuildConfig.class
+new file mode 100644
+index 0000000..4d8f8d9
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/BuildConfig.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule$Companion.class b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule$Companion.class
+new file mode 100644
+index 0000000..524797f
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule$Companion.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule$connect$5.class b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule$connect$5.class
+new file mode 100644
+index 0000000..759c322
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule$connect$5.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule$startStatsUpdater$1.class b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule$startStatsUpdater$1.class
+new file mode 100644
+index 0000000..bc76739
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule$startStatsUpdater$1.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule.class b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule.class
+new file mode 100644
+index 0000000..1709d35
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnModule.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnPackage.class b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnPackage.class
+new file mode 100644
+index 0000000..396160b
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnPackage.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnService$Companion.class b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnService$Companion.class
+new file mode 100644
+index 0000000..868a221
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnService$Companion.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnService$startStatsUpdater$1.class b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnService$startStatsUpdater$1.class
+new file mode 100644
+index 0000000..f2a35f9
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnService$startStatsUpdater$1.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnService.class b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnService.class
+new file mode 100644
+index 0000000..b986843
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_dir/debug/bundleLibRuntimeToDirDebug/com/wireguardvpn/WireGuardVpnService.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar
+new file mode 100644
+index 0000000..35c9b25
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/runtime_library_classes_jar/debug/bundleLibRuntimeToJarDebug/classes.jar differ
 diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
 new file mode 100644
 index 0000000..0cab381
@@ -281,29 +424,345 @@ index 0000000..0cab381
 +++ b/node_modules/react-native-wireguard-vpn-connect/android/build/intermediates/symbol_list_with_package_name/debug/generateDebugRFile/package-aware-r.txt
 @@ -0,0 +1 @@
 +com.wireguardvpn
-diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/dirty-sources.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/dirty-sources.txt
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab
 new file mode 100644
-index 0000000..7f5a56a
+index 0000000..a04d532
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream
+new file mode 100644
+index 0000000..0071802
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len
+new file mode 100644
+index 0000000..b5b5821
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.keystream.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len
+new file mode 100644
+index 0000000..a9f80ae
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at
+new file mode 100644
+index 0000000..50c6f12
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab.values.at differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i
+new file mode 100644
+index 0000000..4394fcb
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/inputs/source-to-output.tab_i.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab
+new file mode 100644
+index 0000000..5e13baa
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream
+new file mode 100644
+index 0000000..9dbdd6c
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len
+new file mode 100644
+index 0000000..c580238
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len
+new file mode 100644
+index 0000000..ec8f944
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at
+new file mode 100644
+index 0000000..63c4975
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab.values.at differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i
+new file mode 100644
+index 0000000..4973cd5
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-attributes.tab_i.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab
+new file mode 100644
+index 0000000..d768890
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream
+new file mode 100644
+index 0000000..9dbdd6c
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len
+new file mode 100644
+index 0000000..c580238
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len
+new file mode 100644
+index 0000000..ec8f944
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at
+new file mode 100644
+index 0000000..dfa013b
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i
+new file mode 100644
+index 0000000..4973cd5
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab
+new file mode 100644
+index 0000000..12fea59
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream
+new file mode 100644
+index 0000000..8928e06
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len
+new file mode 100644
+index 0000000..703fabb
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len
+new file mode 100644
+index 0000000..fa606b6
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at
+new file mode 100644
+index 0000000..e51d250
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i
+new file mode 100644
+index 0000000..77f4a8d
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab
+new file mode 100644
+index 0000000..883836e
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream
+new file mode 100644
+index 0000000..23e8e39
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len
+new file mode 100644
+index 0000000..73e7fcf
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.keystream.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len
+new file mode 100644
+index 0000000..9e27f73
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at
+new file mode 100644
+index 0000000..2737bf8
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab.values.at differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i
+new file mode 100644
+index 0000000..e46b3d0
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/proto.tab_i.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab
+new file mode 100644
+index 0000000..a323811
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream
+new file mode 100644
+index 0000000..0071802
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len
+new file mode 100644
+index 0000000..b5b5821
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len
+new file mode 100644
+index 0000000..a9f80ae
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at
+new file mode 100644
+index 0000000..7d50f38
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i
+new file mode 100644
+index 0000000..4394fcb
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab
+new file mode 100644
+index 0000000..6ad89d3
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream
+new file mode 100644
+index 0000000..9f6da87
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len
+new file mode 100644
+index 0000000..2370ff8
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len
+new file mode 100644
+index 0000000..a9f80ae
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at
+new file mode 100644
+index 0000000..d974db6
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab.values.at differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i
+new file mode 100644
+index 0000000..75c8e09
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/subtypes.tab_i.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab
+new file mode 100644
+index 0000000..5ea944c
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream
+new file mode 100644
+index 0000000..426f030
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len
+new file mode 100644
+index 0000000..7ab8050
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len
+new file mode 100644
+index 0000000..a9f80ae
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at
+new file mode 100644
+index 0000000..84fee23
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab.values.at differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i
+new file mode 100644
+index 0000000..38b4b55
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/jvm/kotlin/supertypes.tab_i.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab
+new file mode 100644
+index 0000000..f2c67d0
 --- /dev/null
-+++ b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/dirty-sources.txt
++++ b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/counters.tab
 @@ -0,0 +1,2 @@
-+/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnModule.kt
-+/Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnPackage.kt
++8
++0
 \ No newline at end of file
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab
+new file mode 100644
+index 0000000..1c1f44e
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream
+new file mode 100644
+index 0000000..0071802
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len
+new file mode 100644
+index 0000000..b5b5821
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.keystream.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len
+new file mode 100644
+index 0000000..a9f80ae
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at
+new file mode 100644
+index 0000000..0202bde
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab.values.at differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i
+new file mode 100644
+index 0000000..4394fcb
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/file-to-id.tab_i.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab
+new file mode 100644
+index 0000000..662cd68
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream
+new file mode 100644
+index 0000000..ce37c13
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len
+new file mode 100644
+index 0000000..d9e6aa6
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.keystream.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len
+new file mode 100644
+index 0000000..fa606b6
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at
+new file mode 100644
+index 0000000..4bfce84
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab.values.at differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i
+new file mode 100644
+index 0000000..37f0862
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/id-to-file.tab_i.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab
+new file mode 100644
+index 0000000..a319cf0
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream
+new file mode 100644
+index 0000000..719a783
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len
+new file mode 100644
+index 0000000..2b0c751
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.keystream.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len
+new file mode 100644
+index 0000000..2956ecb
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at
+new file mode 100644
+index 0000000..62c3112
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab.values.at differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i
+new file mode 100644
+index 0000000..2d125e5
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len
+new file mode 100644
+index 0000000..131e265
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/caches-jvm/lookups/lookups.tab_i.len differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin
+new file mode 100644
+index 0000000..3dc1039
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/cacheable/last-build.bin differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin
+new file mode 100644
+index 0000000..ed42548
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/classpath-snapshot/shrunk-classpath-snapshot.bin differ
 diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin
 new file mode 100644
-index 0000000..528ece0
+index 0000000..f7e4ec5
 Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/kotlin/compileDebugKotlin/local-state/build-history.bin differ
 diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/outputs/logs/manifest-merger-debug-report.txt b/node_modules/react-native-wireguard-vpn-connect/android/build/outputs/logs/manifest-merger-debug-report.txt
 new file mode 100644
-index 0000000..da55c4b
+index 0000000..59aea82
 --- /dev/null
 +++ b/node_modules/react-native-wireguard-vpn-connect/android/build/outputs/logs/manifest-merger-debug-report.txt
-@@ -0,0 +1,56 @@
+@@ -0,0 +1,72 @@
 +-- Merging decision tree log ---
 +manifest
-+ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:2:1-29:12
-+INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:2:1-29:12
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:2:1-35:12
++INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:2:1-35:12
 +	package
 +		INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
 +	xmlns:tools
@@ -318,36 +777,52 @@ index 0000000..da55c4b
 +ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:6:5-77
 +	android:name
 +		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:6:22-74
++uses-permission#android.permission.FOREGROUND_SERVICE_SPECIAL_USE
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:5-89
++	android:name
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:22-86
++uses-permission#android.permission.POST_NOTIFICATIONS
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:8:5-77
++	android:name
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:8:22-74
 +uses-permission#android.permission.BIND_VPN_SERVICE
-+ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:5-75
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:5-75
 +	android:name
-+		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:7:22-72
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:22-72
 +application
-+ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:5-28:19
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:11:5-34:19
 +	android:networkSecurityConfig
-+		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:9:18-78
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:11:18-78
 +service#com.wireguardvpn.WireGuardVpnService
-+ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:10:9-17:19
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:12:9-23:19
 +	android:exported
-+		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:13:13-36
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:13-36
 +	android:permission
-+		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:12:13-69
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:14:13-69
++	android:foregroundServiceType
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:16:13-55
 +	android:name
-+		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:11:13-48
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:13:13-48
 +intent-filter#action:name:android.net.VpnService
-+ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:14:13-16:29
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:17:13-19:29
 +action#android.net.VpnService
-+ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:17-65
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:18:17-65
 +	android:name
-+		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:15:25-62
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:18:25-62
++property#android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:20:13-22:58
++	android:value
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:22:17-55
++	android:name
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:21:17-76
 +service#com.wireguard.android.backend.GoBackend$VpnService
-+ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:20:9-27:19
++ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:26:9-33:19
 +	android:exported
-+		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:23:13-36
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:29:13-36
 +	android:permission
-+		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:22:13-69
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:28:13-69
 +	android:name
-+		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:21:13-78
++		ADDED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml:27:13-78
 +uses-sdk
 +INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
 +INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
@@ -356,11 +831,110 @@ index 0000000..da55c4b
 +		INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
 +	android:minSdkVersion
 +		INJECTED from /Users/baby/ventura/deVPN-AI/mobile-app/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin
+new file mode 100644
+index 0000000..35d6df6
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/META-INF/react-native-wireguard-vpn-connect_debug.kotlin_module b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/META-INF/react-native-wireguard-vpn-connect_debug.kotlin_module
+new file mode 100644
+index 0000000..9dbc290
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/META-INF/react-native-wireguard-vpn-connect_debug.kotlin_module differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule$Companion.class b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule$Companion.class
+new file mode 100644
+index 0000000..524797f
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule$Companion.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule$connect$5.class b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule$connect$5.class
+new file mode 100644
+index 0000000..759c322
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule$connect$5.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule$startStatsUpdater$1.class b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule$startStatsUpdater$1.class
+new file mode 100644
+index 0000000..bc76739
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule$startStatsUpdater$1.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule.class b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule.class
+new file mode 100644
+index 0000000..1709d35
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnModule.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnPackage.class b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnPackage.class
+new file mode 100644
+index 0000000..396160b
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnPackage.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnService$Companion.class b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnService$Companion.class
+new file mode 100644
+index 0000000..868a221
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnService$Companion.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnService$startStatsUpdater$1.class b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnService$startStatsUpdater$1.class
+new file mode 100644
+index 0000000..f2a35f9
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnService$startStatsUpdater$1.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnService.class b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnService.class
+new file mode 100644
+index 0000000..b986843
+Binary files /dev/null and b/node_modules/react-native-wireguard-vpn-connect/android/build/tmp/kotlin-classes/debug/com/wireguardvpn/WireGuardVpnService.class differ
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml b/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
+index 28c1bad..ffb23b3 100644
+--- a/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
++++ b/node_modules/react-native-wireguard-vpn-connect/android/src/main/AndroidManifest.xml
+@@ -4,16 +4,22 @@
+ 
+     <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
++    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
++    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+     <uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
+ 
+     <application android:networkSecurityConfig="@xml/network_security_config">
+         <service
+             android:name=".WireGuardVpnService"
+             android:permission="android.permission.BIND_VPN_SERVICE"
+-            android:exported="true">
++            android:exported="true"
++            android:foregroundServiceType="specialUse">
+             <intent-filter>
+                 <action android:name="android.net.VpnService" />
+             </intent-filter>
++            <property
++                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
++                android:value="VPN connection service" />
+         </service>
+ 
+         <!-- WireGuard GoBackend Service -->
 diff --git a/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnModule.kt b/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnModule.kt
-index d53a3e3..9840962 100644
+index d53a3e3..ca2280d 100644
 --- a/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnModule.kt
 +++ b/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnModule.kt
-@@ -33,7 +33,7 @@ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBa
+@@ -1,10 +1,13 @@
+ package com.wireguardvpn
+ 
+ import android.app.Activity
++import android.content.Context
+ import android.content.Intent
+ import android.net.VpnService
++import android.os.Build
+ import com.facebook.react.bridge.*
+ import com.wireguard.android.backend.GoBackend
++import com.wireguard.android.backend.Statistics
+ import com.wireguard.config.Config
+ import com.wireguard.config.Interface
+ import com.wireguard.config.Peer
+@@ -13,12 +16,16 @@ import java.net.InetAddress
+ import com.wireguard.config.InetNetwork
+ import com.wireguard.config.ParseException
+ import com.wireguard.crypto.Key
++import android.os.Handler
++import android.os.Looper
+ 
+ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+     private var backend: GoBackend? = null
+     private var tunnel: Tunnel? = null
+     private var config: Config? = null
+     private var vpnPermissionGranted = false
++    private val handler = Handler(Looper.getMainLooper())
++    private var statsUpdateRunnable: Runnable? = null
+ 
+     companion object {
+         private const val VPN_REQUEST_CODE = 1000
+@@ -33,7 +40,7 @@ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBa
              val intent = VpnService.prepare(reactApplicationContext)
              if (intent != null) {
                  // VPN permission not granted, need to request it
@@ -369,7 +943,7 @@ index d53a3e3..9840962 100644
                  if (activity != null) {
                      activity.startActivityForResult(intent, VPN_REQUEST_CODE)
                      // We'll handle the result in onActivityResult
-@@ -59,7 +59,7 @@ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBa
+@@ -59,7 +66,7 @@ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBa
          try {
              val intent = VpnService.prepare(reactApplicationContext)
              if (intent != null) {
@@ -378,3 +952,391 @@ index d53a3e3..9840962 100644
                  if (activity != null) {
                      activity.startActivityForResult(intent, VPN_REQUEST_CODE)
                      promise.resolve("PERMISSION_REQUESTED")
+@@ -110,24 +117,33 @@ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBa
+                 throw Exception("Invalid private key format: ${e.message}")
+             }
+ 
+-            // Parse allowed IPs for interface
+-            val allowedIPs = configMap.getArray("allowedIPs")?.toArrayList()
+-                ?: throw Exception("allowedIPs array is required")
+-            
++            // Parse interface address - ưu tiên clientAddress từ config
+             try {
+-                println("Parsing interface addresses: $allowedIPs")
+-                // For interface, we typically use a single IP like "10.0.0.2/32"
+-                // We'll use the first allowed IP as the interface address if it's a specific IP
+-                allowedIPs.forEach { ip ->
+-                    (ip as? String)?.let { ipString ->
+-                        if (ipString.contains("/32") || ipString.contains("/128")) {
+-                            interfaceBuilder.addAddress(InetNetwork.parse(ipString))
++                val clientAddress = configMap.getString("clientAddress")
++                if (clientAddress != null && clientAddress.isNotEmpty()) {
++                    println("Using clientAddress from config: $clientAddress")
++                    interfaceBuilder.addAddress(InetNetwork.parse(clientAddress))
++                    println("Interface address set from clientAddress: $clientAddress")
++                } else {
++                    // Fallback: Parse allowed IPs for interface
++                    val allowedIPs = configMap.getArray("allowedIPs")?.toArrayList()
++                        ?: throw Exception("allowedIPs array is required")
++
++                    println("No clientAddress found, parsing interface addresses from allowedIPs: $allowedIPs")
++                    // For interface, we typically use a single IP like "10.0.0.2/32"
++                    // We'll use the first allowed IP as the interface address if it's a specific IP
++                    allowedIPs.forEach { ip ->
++                        (ip as? String)?.let { ipString ->
++                            if (ipString.contains("/32") || ipString.contains("/128")) {
++                                interfaceBuilder.addAddress(InetNetwork.parse(ipString))
++                            }
+                         }
+                     }
+-                }
+-                // If no specific interface IP found, add a default one
+-                if (interfaceBuilder.build().addresses.isEmpty()) {
+-                    interfaceBuilder.addAddress(InetNetwork.parse("10.0.0.2/32"))
++                    // If no specific interface IP found, add a default one
++                    if (interfaceBuilder.build().addresses.isEmpty()) {
++                        println("No interface address found, using default: 10.0.0.2/32")
++                        interfaceBuilder.addAddress(InetNetwork.parse("10.0.0.2/32"))
++                    }
+                 }
+                 println("Interface addresses parsed successfully")
+             } catch (e: ParseException) {
+@@ -135,6 +151,10 @@ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBa
+                 throw Exception("Invalid interface address format: ${e.message}")
+             }
+ 
++            // Parse allowed IPs for peer (routes)
++            val allowedIPs = configMap.getArray("allowedIPs")?.toArrayList()
++                ?: throw Exception("allowedIPs array is required")
++
+             // Parse DNS servers
+             if (configMap.hasKey("dns")) {
+                 val dnsServers = configMap.getArray("dns")?.toArrayList()
+@@ -263,6 +283,13 @@ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBa
+                 println("All components ready, connecting...")
+                 val state = backend!!.setState(tunnel!!, Tunnel.State.UP, this.config)
+                 println("Tunnel state set result: $state")
++
++                // Start foreground service with notification
++                startVpnForegroundService()
++
++                // Start stats updater
++                startStatsUpdater()
++
+                 println("Successfully connected to VPN")
+                 promise.resolve(null)
+ 
+@@ -284,6 +311,12 @@ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBa
+     @ReactMethod
+     fun disconnect(promise: Promise) {
+         try {
++            // Stop stats updater
++            stopStatsUpdater()
++
++            // Stop foreground service
++            stopVpnForegroundService()
++
+             if (tunnel != null && backend != null) {
+                 val state = backend!!.setState(tunnel!!, Tunnel.State.DOWN, null)
+                 println("Tunnel disconnected, state: $state")
+@@ -327,4 +360,53 @@ class WireGuardVpnModule(reactContext: ReactApplicationContext) : ReactContextBa
+     fun isSupported(promise: Promise) {
+         promise.resolve(true)
+     }
++
++    private fun startVpnForegroundService() {
++        try {
++            println("Starting VPN foreground service...")
++            val intent = Intent(reactApplicationContext, WireGuardVpnService::class.java)
++            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
++                println("Starting foreground service (Android O+)")
++                reactApplicationContext.startForegroundService(intent)
++            } else {
++                println("Starting service (Android < O)")
++                reactApplicationContext.startService(intent)
++            }
++            println("VPN foreground service started successfully")
++        } catch (e: Exception) {
++            println("Failed to start VPN foreground service: ${e.message}")
++            e.printStackTrace()
++        }
++    }
++
++    private fun stopVpnForegroundService() {
++        try {
++            val intent = Intent(reactApplicationContext, WireGuardVpnService::class.java)
++            reactApplicationContext.stopService(intent)
++        } catch (e: Exception) {
++            println("Failed to stop VPN foreground service: ${e.message}")
++        }
++    }
++
++    private fun startStatsUpdater() {
++        statsUpdateRunnable = object : Runnable {
++            override fun run() {
++                try {
++                    if (tunnel != null && backend != null) {
++                        val stats = backend!!.getStatistics(tunnel!!)
++                        WireGuardVpnService.updateStats(stats)
++                    }
++                } catch (e: Exception) {
++                    println("Failed to update stats: ${e.message}")
++                }
++                handler.postDelayed(this, 1000) // Update every 1 second
++            }
++        }
++        handler.post(statsUpdateRunnable!!)
++    }
++
++    private fun stopStatsUpdater() {
++        statsUpdateRunnable?.let { handler.removeCallbacks(it) }
++        statsUpdateRunnable = null
++    }
+ }
+diff --git a/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnService.kt b/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnService.kt
+new file mode 100644
+index 0000000..df95168
+--- /dev/null
++++ b/node_modules/react-native-wireguard-vpn-connect/android/src/main/java/com/wireguardvpn/WireGuardVpnService.kt
+@@ -0,0 +1,241 @@
++package com.wireguardvpn
++
++import android.app.Notification
++import android.app.NotificationChannel
++import android.app.NotificationManager
++import android.app.PendingIntent
++import android.content.Context
++import android.content.Intent
++import android.net.VpnService
++import android.os.Build
++import android.os.Handler
++import android.os.Looper
++import androidx.core.app.NotificationCompat
++import com.wireguard.android.backend.Statistics
++import java.text.DecimalFormat
++
++class WireGuardVpnService : VpnService() {
++    companion object {
++        private const val NOTIFICATION_ID = 1001
++        private const val CHANNEL_ID = "wireguard_vpn_channel"
++        private const val CHANNEL_NAME = "WireGuard VPN"
++
++        private var isRunning = false
++        private var currentStats: Statistics? = null
++
++        fun isServiceRunning(): Boolean = isRunning
++
++        fun updateStats(stats: Statistics?) {
++            currentStats = stats
++        }
++    }
++
++    private val handler = Handler(Looper.getMainLooper())
++    private var updateRunnable: Runnable? = null
++    private var lastRxBytes = 0L
++    private var lastTxBytes = 0L
++    private var lastUpdateTime = 0L
++
++    override fun onCreate() {
++        super.onCreate()
++        println("WireGuardVpnService onCreate() called")
++        isRunning = true
++        try {
++            createNotificationChannel()
++            println("Notification channel created")
++
++            val notification = createNotification()
++            println("Notification created: ${notification.extras}")
++
++            startForeground(NOTIFICATION_ID, notification)
++            println("Foreground service started with notification ID: $NOTIFICATION_ID")
++
++            startStatsUpdater()
++            println("Stats updater started")
++        } catch (e: Exception) {
++            println("Error in onCreate: ${e.message}")
++            e.printStackTrace()
++        }
++    }
++
++    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
++        println("WireGuardVpnService onStartCommand() called")
++        // Ensure notification is shown
++        try {
++            val notification = createNotification()
++            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
++            notificationManager.notify(NOTIFICATION_ID, notification)
++            println("Notification updated in onStartCommand")
++        } catch (e: Exception) {
++            println("Error updating notification in onStartCommand: ${e.message}")
++            e.printStackTrace()
++        }
++        return START_STICKY
++    }
++
++    override fun onDestroy() {
++        isRunning = false
++        stopStatsUpdater()
++        super.onDestroy()
++    }
++
++    private fun createNotificationChannel() {
++        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
++            try {
++                val channel = NotificationChannel(
++                    CHANNEL_ID,
++                    CHANNEL_NAME,
++                    NotificationManager.IMPORTANCE_LOW
++                ).apply {
++                    description = "Shows VPN connection status and network speed"
++                    setShowBadge(false)
++                    enableVibration(false)
++                    enableLights(false)
++                }
++
++                val notificationManager = getSystemService(NotificationManager::class.java)
++                notificationManager?.createNotificationChannel(channel)
++                println("Notification channel '$CHANNEL_ID' created successfully")
++            } catch (e: Exception) {
++                println("Error creating notification channel: ${e.message}")
++                e.printStackTrace()
++            }
++        } else {
++            println("Android version < O, no channel needed")
++        }
++    }
++
++    private fun createNotification(): Notification {
++        // Get main app intent
++        val packageName = applicationContext.packageName
++        val intent = applicationContext.packageManager.getLaunchIntentForPackage(packageName)
++        val pendingIntent = PendingIntent.getActivity(
++            this,
++            0,
++            intent,
++            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
++        )
++
++        // Calculate network speed
++        val (downloadSpeed, uploadSpeed) = calculateSpeed()
++
++        // Format speeds
++        val downloadText = formatSpeed(downloadSpeed)
++        val uploadText = formatSpeed(uploadSpeed)
++
++        return NotificationCompat.Builder(this, CHANNEL_ID)
++            .setContentTitle("DeVPN Connected")
++            .setContentText("↓ $downloadText  ↑ $uploadText")
++            .setSmallIcon(android.R.drawable.stat_sys_upload_done) // Using system icon
++            .setOngoing(true)
++            .setContentIntent(pendingIntent)
++            .setPriority(NotificationCompat.PRIORITY_LOW)
++            .setCategory(NotificationCompat.CATEGORY_SERVICE)
++            .setShowWhen(false)
++            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
++            .build()
++    }
++
++    private fun calculateSpeed(): Pair<Double, Double> {
++        val stats = currentStats ?: return Pair(0.0, 0.0)
++
++        val currentTime = System.currentTimeMillis()
++        val timeDiff = (currentTime - lastUpdateTime) / 1000.0 // seconds
++
++        if (timeDiff <= 0 || lastUpdateTime == 0L) {
++            lastUpdateTime = currentTime
++            return Pair(0.0, 0.0)
++        }
++
++        // Get total bytes from all peers
++        var totalRxBytes = 0L
++        var totalTxBytes = 0L
++
++        try {
++            // Try to access peers data using reflection
++            val peersData = stats.peers()
++            if (peersData != null) {
++                // Use reflection to safely access Map entries
++                val mapClass = peersData.javaClass
++                val entrySetMethod = mapClass.getMethod("entrySet")
++                val entrySet = entrySetMethod.invoke(peersData) as? Set<*>
++
++                entrySet?.forEach { entry ->
++                    try {
++                        // Get value from Map.Entry
++                        val getValueMethod = entry?.javaClass?.getMethod("getValue")
++                        val peerStats = getValueMethod?.invoke(entry)
++
++                        if (peerStats != null) {
++                            // Try to get rxBytes and txBytes using reflection
++                            val rxBytesField = peerStats.javaClass.getDeclaredField("rxBytes")
++                            val txBytesField = peerStats.javaClass.getDeclaredField("txBytes")
++
++                            rxBytesField.isAccessible = true
++                            txBytesField.isAccessible = true
++
++                            val rx = rxBytesField.get(peerStats) as? Long ?: 0L
++                            val tx = txBytesField.get(peerStats) as? Long ?: 0L
++
++                            totalRxBytes += rx
++                            totalTxBytes += tx
++                        }
++                    } catch (e: Exception) {
++                        // Skip this peer if we can't get stats
++                    }
++                }
++            }
++        } catch (e: Exception) {
++            // If we can't get stats, return 0
++            // This is expected if Statistics API is not available
++            return Pair(0.0, 0.0)
++        }
++
++        // Calculate speed in bytes/sec
++        val downloadSpeed = if (timeDiff > 0) (totalRxBytes - lastRxBytes) / timeDiff else 0.0
++        val uploadSpeed = if (timeDiff > 0) (totalTxBytes - lastTxBytes) / timeDiff else 0.0
++
++        // Update last values
++        lastRxBytes = totalRxBytes
++        lastTxBytes = totalTxBytes
++        lastUpdateTime = currentTime
++
++        return Pair(downloadSpeed.coerceAtLeast(0.0), uploadSpeed.coerceAtLeast(0.0))
++    }
++
++    private fun formatSpeed(bytesPerSecond: Double): String {
++        val df = DecimalFormat("#.##")
++        return when {
++            bytesPerSecond < 0 -> "0 B/s"
++            bytesPerSecond < 1024 -> "${df.format(bytesPerSecond)} B/s"
++            bytesPerSecond < 1024 * 1024 -> "${df.format(bytesPerSecond / 1024)} KB/s"
++            bytesPerSecond < 1024 * 1024 * 1024 -> "${df.format(bytesPerSecond / (1024 * 1024))} MB/s"
++            else -> "${df.format(bytesPerSecond / (1024 * 1024 * 1024))} GB/s"
++        }
++    }
++
++    private fun startStatsUpdater() {
++        updateRunnable = object : Runnable {
++            override fun run() {
++                updateNotification()
++                handler.postDelayed(this, 2000) // Update every 2 seconds
++            }
++        }
++        handler.post(updateRunnable!!)
++    }
++
++    private fun stopStatsUpdater() {
++        updateRunnable?.let { handler.removeCallbacks(it) }
++        updateRunnable = null
++    }
++
++    private fun updateNotification() {
++        try {
++            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
++            notificationManager.notify(NOTIFICATION_ID, createNotification())
++        } catch (e: Exception) {
++            e.printStackTrace()
++        }
++    }
++}
++
