@@ -1,3 +1,45 @@
+// Theme Colors
+export const COLORS = {
+  // Background
+  background: '#0a1628',
+  backgroundDark: '#060d1a',
+  backgroundLight: '#132339',
+
+  // Primary
+  primary: '#FF8A65',
+  primaryDark: '#FF6B4A',
+  primaryLight: '#FFB085',
+
+  // Secondary
+  secondary: '#FF6B9D',
+  secondaryDark: '#FF4D7D',
+  secondaryLight: '#FF8DB7',
+
+  // Status
+  success: '#4CAF50',
+  warning: '#FFA726',
+  error: '#EF5350',
+  info: '#42A5F5',
+
+  // Text
+  text: '#FFFFFF',
+  textSecondary: '#B0BEC5',
+  textMuted: '#78909C',
+
+  // UI Elements
+  card: '#1a2942',
+  cardLight: '#243550',
+  border: '#2c3e50',
+
+  // Gradients
+  gradientStart: '#FF8A65',
+  gradientEnd: '#FF6B9D',
+
+  // Overlay
+  overlay: 'rgba(10, 22, 40, 0.9)',
+  overlayLight: 'rgba(10, 22, 40, 0.5)',
+};
+
 // Network configurations
 export const NETWORKS = {
   1: {

@@ -59,7 +59,6 @@ class BlockchainService {
       const balance = await tokenContract.balanceOf(userAddress);
       return ethers.formatEther(balance);
     } catch (error) {
-      console.error('Error getting token balance:', error);
       return '0';
     }
   }
@@ -98,7 +97,6 @@ class BlockchainService {
         amount: ethers.formatEther(amount),
       };
     } catch (error) {
-      console.error('Error claiming reward:', error);
       throw error;
     }
   }
@@ -111,7 +109,6 @@ class BlockchainService {
       }
       return await this.rewardContract.claimed(epoch, address);
     } catch (error) {
-      console.error('Error checking claim status:', error);
       return false;
     }
   }
@@ -125,7 +122,6 @@ class BlockchainService {
       const score = await this.reputationContract.score(nodeAddress);
       return score;
     } catch (error) {
-      console.error('Error getting reputation:', error);
       return null;
     }
   }
@@ -138,7 +134,6 @@ class BlockchainService {
       }
       return await this.signer.getAddress();
     } catch (error) {
-      console.error('Error getting account:', error);
       return null;
     }
   }

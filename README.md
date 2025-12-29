@@ -53,6 +53,15 @@ EXPO_PUBLIC_REPUTATION_CONTRACT_ADDRESS=0x...
 EXPO_PUBLIC_TOKEN_ADDRESS=0x...
 ```
 
+**Lưu ý về Backend URL:**
+- **iOS Simulator / Android Emulator**: Có thể dùng `http://localhost:3000`
+- **Thiết bị thật (iPhone/Android)**: Phải dùng IP của máy tính thay vì `localhost`
+  - Mac/Linux: `ifconfig | grep "inet " | grep -v 127.0.0.1` để tìm IP
+  - Windows: `ipconfig` và tìm IPv4 Address
+  - Ví dụ: `EXPO_PUBLIC_BACKEND_URL=http://192.168.1.100:3000`
+- Đảm bảo máy tính và thiết bị cùng mạng WiFi
+- Đảm bảo backend đang chạy và có thể truy cập được
+
 3. **Start development server**:
 ```bash
 npm start
@@ -131,9 +140,9 @@ Using Redux Toolkit with 3 slices:
 - `POST /vpn/connect` - Connect VPN
 - `POST /vpn/disconnect` - Disconnect VPN
 - `GET /vpn/status/:id` - Get connection status
-- `GET /reward/proof` - Get merkle proof
-- `GET /reward/epochs` - Get epochs list
-- `GET /reward/verify/:id` - Verify reward
+- `GET /rewards/proof` - Get merkle proof
+- `GET /rewards/epochs` - Get epochs list
+- `GET /rewards/verify/:id` - Verify reward
 
 ### Blockchain
 - `claimReward(epoch, amount, proof)` - Claim reward
@@ -196,6 +205,36 @@ expo build:android
 - Single AI model for routing
 - No governance features
 - No slashing mechanism
+
+## Troubleshooting
+
+### Network Error khi Connect VPN
+
+Nếu gặp lỗi "Network Error" khi connect VPN:
+
+1. **Kiểm tra Backend có đang chạy:**
+   ```bash
+   cd ../backend
+   rails server
+   # Hoặc kiểm tra port 3000 có đang được sử dụng
+   ```
+
+2. **Kiểm tra URL trong `.env`:**
+   - Trên simulator/emulator: `http://localhost:3000`
+   - Trên thiết bị thật: `http://[IP_MÁY_TÍNH]:3000`
+   - Sau khi sửa `.env`, cần restart Expo: `npm start` và chọn `r` để reload
+
+3. **Kiểm tra console logs:**
+   - Mở React Native Debugger hoặc xem logs trong terminal
+   - Sẽ thấy URL đang được sử dụng và chi tiết lỗi
+
+4. **Kiểm tra firewall:**
+   - Đảm bảo port 3000 không bị chặn
+   - Trên Mac: System Preferences > Security & Privacy > Firewall
+
+5. **Kiểm tra mạng:**
+   - Máy tính và thiết bị phải cùng một mạng WiFi
+   - Thử ping IP của máy tính từ thiết bị
 
 ## Success Criteria
 

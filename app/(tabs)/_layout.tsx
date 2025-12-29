@@ -1,16 +1,46 @@
 import { Tabs } from 'expo-router';
-import { Text } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
+const COLORS = {
+  background: '#0a1628',
+  card: '#1a2942',
+  primary: '#FF8A65',
+  text: '#FFFFFF',
+  textSecondary: '#B0BEC5',
+};
 
 export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#1890ff',
-        tabBarInactiveTintColor: '#999',
-        headerStyle: {
-          backgroundColor: '#1890ff',
+        tabBarActiveTintColor: COLORS.primary,
+        tabBarInactiveTintColor: COLORS.textSecondary,
+        tabBarStyle: {
+          backgroundColor: COLORS.card,
+          borderTopColor: COLORS.background,
+          borderTopWidth: 1,
+          height: 80,
+          paddingTop: 8,
+          paddingBottom: 10,
+          position: 'absolute',
+          elevation: 8,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 4 },
+          shadowOpacity: 0.3,
+          shadowRadius: 8,
         },
-        headerTintColor: '#fff',
+        headerStyle: {
+          backgroundColor: COLORS.background,
+          elevation: 0,
+          shadowOpacity: 0,
+          borderBottomWidth: 1,
+          borderBottomColor: COLORS.card,
+        },
+        headerTintColor: COLORS.text,
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontSize: 20,
+        },
       }}
     >
       <Tabs.Screen
@@ -18,8 +48,8 @@ export default function TabsLayout() {
         options={{
           title: 'VPN',
           tabBarLabel: 'VPN',
-          tabBarIcon: ({ color }) => (
-            <Text style={{ color, fontSize: 20 }}>🛡️</Text>
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="shield-check" size={size || 24} color={color} />
           ),
         }}
       />
@@ -28,8 +58,8 @@ export default function TabsLayout() {
         options={{
           title: 'Rewards',
           tabBarLabel: 'Rewards',
-          tabBarIcon: ({ color }) => (
-            <Text style={{ color, fontSize: 20 }}>🎁</Text>
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="gift" size={size || 24} color={color} />
           ),
         }}
       />
@@ -38,8 +68,8 @@ export default function TabsLayout() {
         options={{
           title: 'Wallet',
           tabBarLabel: 'Wallet',
-          tabBarIcon: ({ color }) => (
-            <Text style={{ color, fontSize: 20 }}>💼</Text>
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="wallet" size={size || 24} color={color} />
           ),
         }}
       />

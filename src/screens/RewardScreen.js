@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, RefreshControl } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, RefreshControl, TouchableOpacity } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import useRewardStore from '../store/rewardStore';
 import useWalletStore from '../store/walletStore';
 import api from '../services/api';
 import blockchain from '../services/blockchain';
-import Button from '../components/Button';
-import Card from '../components/Card';
 import Toast from '../components/Toast';
+import { COLORS } from '../utils/constants';
 
 const RewardScreen = () => {
   const {
@@ -75,7 +76,7 @@ const RewardScreen = () => {
 
       updatePendingRewards(pending);
     } catch (err) {
-      console.error('Error loading pending rewards:', err);
+      // Error loading pending rewards
     }
   };
 
@@ -132,74 +133,114 @@ const RewardScreen = () => {
     <ScrollView
       style={styles.container}
       refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={COLORS.primary} />
       }
     >
-      <Card>
-        <Text style={styles.balanceLabel}>Token Balance</Text>
-        <Text style={styles.balanceValue}>{tokenBalance || '0'} DEVPN</Text>
-      </Card>
+      {/* Balance Card */}
+      <LinearGradient
+        colors={[COLORS.gradientStart, COLORS.gradientEnd]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.balanceCard}
+      >
+        <View style={styles.balanceContent}>
+          <MaterialCommunityIcons name="wallet" size={40} color={COLORS.text} />
+          <View style={styles.balanceTextContainer}>
+            <Text style={styles.balanceLabel}>Token Balance</Text>
+            <Text style={styles.balanceValue}>{tokenBalance || '0'} DeVPN</Text>
+          </View>
+        </View>
+      </LinearGradient>
 
       {!connected && (
-        <Card>
+        <View style={styles.warningCard}>
+          <MaterialCommunityIcons name="alert-circle" size={24} color={COLORS.warning} />
           <Text style={styles.warningText}>
             Please connect your wallet to view rewards
           </Text>
-        </Card>
+        </View>
       )}
 
       {connected && (
         <>
-          <Card>
-            <Text style={styles.sectionTitle}>Pending Rewards</Text>
+          {/* Pending Rewards */}
+          <View style={styles.section}>
+            <View style={styles.sectionHeader}>
+              <MaterialCommunityIcons name="gift" size={24} color={COLORS.primary} />
+              <Text style={styles.sectionTitle}>Pending Rewards</Text>
+            </View>
             {pendingRewards.length === 0 ? (
-              <Text style={styles.emptyText}>No pending rewards</Text>
+              <View style={styles.emptyCard}>
+                <MaterialCommunityIcons name="gift-outline" size={48} color={COLORS.textMuted} />
+                <Text style={styles.emptyText}>No pending rewards</Text>
+              </View>
             ) : (
               pendingRewards.map((reward) => (
-                <View key={reward.epoch} style={styles.rewardItem}>
+                <View key={reward.epoch} style={styles.rewardCard}>
                   <View style={styles.rewardInfo}>
-                    <Text style={styles.rewardEpoch}>Epoch #{reward.epoch}</Text>
-                    <Text style={styles.rewardAmount}>
-                      {formatAmount(reward.amount)}
-                    </Text>
+                    <View style={styles.rewardHeader}>
+                      <Text style={styles.rewardEpoch}>Epoch #{reward.epoch}</Text>
+                      <Text style={styles.rewardAmount}>
+                        {formatAmount(reward.amount)}
+                      </Text>
+                    </View>
                     <Text style={styles.rewardTime}>
                       {formatDate(reward.endTime)}
                     </Text>
                   </View>
-                  <Button
-                    type="primary"
-                    size="small"
+                  <TouchableOpacity
+                    style={styles.claimButton}
                     onPress={() => handleClaimReward(reward)}
-                    loading={loading}
+                    disabled={loading}
                   >
-                    Claim
-                  </Button>
+                    <LinearGradient
+                      colors={[COLORS.gradientStart, COLORS.gradientEnd]}
+                      start={{ x: 0, y: 0 }}
+                      end={{ x: 1, y: 1 }}
+                      style={styles.claimButtonGradient}
+                    >
+                      <Text style={styles.claimButtonText}>
+                        {loading ? 'Claiming...' : 'Claim'}
+                      </Text>
+                    </LinearGradient>
+                  </TouchableOpacity>
                 </View>
               ))
             )}
-          </Card>
+          </View>
 
-          <Card>
-            <Text style={styles.sectionTitle}>Epochs</Text>
+          {/* Epochs */}
+          <View style={styles.section}>
+            <View style={styles.sectionHeader}>
+              <MaterialCommunityIcons name="calendar-clock" size={24} color={COLORS.primary} />
+              <Text style={styles.sectionTitle}>Recent Epochs</Text>
+            </View>
             {epochs.length === 0 ? (
-              <Text style={styles.emptyText}>No epochs found</Text>
+              <View style={styles.emptyCard}>
+                <MaterialCommunityIcons name="calendar-blank" size={48} color={COLORS.textMuted} />
+                <Text style={styles.emptyText}>No epochs found</Text>
+              </View>
             ) : (
               epochs.slice(0, 10).map((epoch) => (
-                <View key={epoch.epoch_id} style={styles.epochItem}>
-                  <Text style={styles.epochId}>Epoch #{epoch.epoch_id}</Text>
-                  <Text style={styles.epochStatus}>Status: {epoch.status}</Text>
+                <View key={epoch.epoch_id} style={styles.epochCard}>
+                  <View style={styles.epochHeader}>
+                    <Text style={styles.epochId}>Epoch #{epoch.epoch_id}</Text>
+                    <View style={[styles.statusBadge, { backgroundColor: epoch.status === 'committed' ? COLORS.success : COLORS.warning }]}>
+                      <Text style={styles.statusText}>{epoch.status}</Text>
+                    </View>
+                  </View>
                   <Text style={styles.epochTime}>
                     {formatDate(epoch.end_time)}
                   </Text>
                   {epoch.merkle_root && (
                     <Text style={styles.epochRoot}>
-                      Root: {epoch.merkle_root.slice(0, 10)}...
+                      Root: {epoch.merkle_root.slice(0, 16)}...
                     </Text>
                   )}
                 </View>
               ))
             )}
-          </Card>
+          </View>
         </>
       )}
     </ScrollView>
@@ -209,83 +250,159 @@ const RewardScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: COLORS.background,
+    paddingBottom: 100,
+  },
+  balanceCard: {
+    margin: 16,
+    borderRadius: 20,
+    padding: 24,
+    shadowColor: COLORS.primary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+  balanceContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  balanceTextContainer: {
+    marginLeft: 16,
+    flex: 1,
   },
   balanceLabel: {
     fontSize: 14,
-    color: '#666',
-    marginBottom: 8,
+    color: COLORS.text,
+    opacity: 0.9,
+    marginBottom: 4,
   },
   balanceValue: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#1890ff',
+    color: COLORS.text,
   },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
+  warningCard: {
+    backgroundColor: COLORS.card,
+    margin: 16,
+    padding: 16,
+    borderRadius: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  warningText: {
+    color: COLORS.warning,
+    marginLeft: 12,
+    flex: 1,
+  },
+  section: {
+    marginHorizontal: 16,
+    marginBottom: 24,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 16,
   },
-  rewardItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: COLORS.text,
+    marginLeft: 8,
+  },
+  emptyCard: {
+    backgroundColor: COLORS.card,
+    borderRadius: 12,
+    padding: 40,
     alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+  },
+  emptyText: {
+    textAlign: 'center',
+    color: COLORS.textMuted,
+    marginTop: 12,
+    fontSize: 14,
+  },
+  rewardCard: {
+    backgroundColor: COLORS.card,
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   rewardInfo: {
     flex: 1,
   },
+  rewardHeader: {
+    marginBottom: 8,
+  },
   rewardEpoch: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: COLORS.text,
+    marginBottom: 4,
   },
   rewardAmount: {
-    fontSize: 18,
-    color: '#52c41a',
-    marginTop: 4,
+    fontSize: 20,
+    color: COLORS.primary,
+    fontWeight: 'bold',
   },
   rewardTime: {
     fontSize: 12,
-    color: '#999',
-    marginTop: 4,
+    color: COLORS.textSecondary,
   },
-  epochItem: {
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+  claimButton: {
+    marginLeft: 12,
+  },
+  claimButtonGradient: {
+    paddingHorizontal: 24,
+    paddingVertical: 10,
+    borderRadius: 20,
+  },
+  claimButtonText: {
+    color: COLORS.text,
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+  epochCard: {
+    backgroundColor: COLORS.card,
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+  },
+  epochHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
   },
   epochId: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: COLORS.text,
   },
-  epochStatus: {
-    fontSize: 14,
-    color: '#666',
-    marginTop: 4,
+  statusBadge: {
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  statusText: {
+    fontSize: 12,
+    color: COLORS.text,
+    fontWeight: '600',
   },
   epochTime: {
     fontSize: 12,
-    color: '#999',
+    color: COLORS.textSecondary,
     marginTop: 4,
   },
   epochRoot: {
-    fontSize: 10,
-    color: '#999',
+    fontSize: 11,
+    color: COLORS.textMuted,
     fontFamily: 'monospace',
-    marginTop: 4,
-  },
-  emptyText: {
-    textAlign: 'center',
-    color: '#999',
-    padding: 20,
-  },
-  warningText: {
-    color: '#faad14',
-    textAlign: 'center',
+    marginTop: 8,
   },
 });
 
 export default RewardScreen;
-

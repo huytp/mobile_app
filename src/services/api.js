@@ -52,10 +52,20 @@ class ApiService {
     }
   }
 
+  // Get connection stats (traffic, speed)
+  async getConnectionStats(connectionId) {
+    try {
+      const response = await this.client.get(`/vpn/status/${connectionId}`);
+      return response.data.stats || {};
+    } catch (error) {
+      throw this.handleError(error);
+    }
+  }
+
   // Node Status
   async getNodeStatus(nodeAddress) {
     try {
-      const response = await this.client.get(`/node/status/${nodeAddress}`);
+      const response = await this.client.get(`/nodes/status/${nodeAddress}`);
       return response.data;
     } catch (error) {
       throw this.handleError(error);
@@ -64,7 +74,7 @@ class ApiService {
 
   async getAllNodes() {
     try {
-      const response = await this.client.get('/node/status');
+      const response = await this.client.get('/nodes/status');
       return response.data;
     } catch (error) {
       throw this.handleError(error);
@@ -74,7 +84,7 @@ class ApiService {
   // Rewards
   async getEpoch(epochId) {
     try {
-      const response = await this.client.get(`/reward/epoch/${epochId}`);
+      const response = await this.client.get(`/rewards/epoch/${epochId}`);
       return response.data;
     } catch (error) {
       throw this.handleError(error);
@@ -83,7 +93,7 @@ class ApiService {
 
   async getRewardProof(nodeAddress, epochId) {
     try {
-      const response = await this.client.get('/reward/proof', {
+      const response = await this.client.get('/rewards/proof', {
         params: {
           node: nodeAddress,
           epoch: epochId,
@@ -97,7 +107,7 @@ class ApiService {
 
   async getEpochs() {
     try {
-      const response = await this.client.get('/reward/epochs');
+      const response = await this.client.get('/rewards/epochs');
       return response.data;
     } catch (error) {
       throw this.handleError(error);
@@ -106,7 +116,7 @@ class ApiService {
 
   async verifyReward(nodeAddress, epochId) {
     try {
-      const response = await this.client.get(`/reward/verify/${epochId}`, {
+      const response = await this.client.get(`/rewards/verify/${epochId}`, {
         params: {
           node: nodeAddress,
         },
@@ -129,11 +139,21 @@ class ApiService {
 
   handleError(error) {
     if (error.response) {
-      return new Error(error.response.data.error || 'API Error');
+      // Server trả về response nhưng có lỗi
+      const errorMessage = error.response.data?.error || error.response.data?.message || 'API Error';
+
+      // Xử lý lỗi 503 (No available route)
+      if (error.response.status === 503 && errorMessage.includes('No available route')) {
+        return new Error('Không có route khả dụng. Vui lòng đảm bảo:\n1. Có nodes đã đăng ký\n2. AI Routing Engine đang chạy\n3. Nodes đang active');
+      }
+
+      return new Error(`${errorMessage} (Status: ${error.response.status})`);
     } else if (error.request) {
-      return new Error('Network Error');
+      // Request được gửi nhưng không nhận được response
+      return new Error(`Không thể kết nối đến server. Vui lòng kiểm tra:\n1. Backend có đang chạy không?\n2. URL: ${API_BASE_URL}\n3. Trên mobile device, dùng IP thay vì localhost`);
     } else {
-      return error;
+      // Lỗi khi setup request
+      return new Error(error.message || 'Unknown error');
     }
   }
 }
