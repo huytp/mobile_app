@@ -69,6 +69,39 @@ const VpnScreen = () => {
     checkWireguardAvailability();
   }, []);
 
+  // Request VPN permission when app opens (if WireGuard is available)
+  useEffect(() => {
+    const requestVpnPermissionOnMount = async () => {
+      // Check if WireGuard module is available
+      if (!WireGuardVpnConnect) {
+        return;
+      }
+
+      try {
+        // Check if requestVpnPermission method exists
+        if (typeof WireGuardVpnConnect.requestVpnPermission === 'function') {
+          console.log('Requesting VPN permission on app startup...');
+          await WireGuardVpnConnect.requestVpnPermission();
+          console.log('VPN permission requested successfully');
+        }
+      } catch (err) {
+        // Permission request failed - this is okay, user might have already granted it
+        // or will be prompted when they try to connect
+        console.log('VPN permission request on startup:', err?.message || 'Permission may already be granted');
+      }
+    };
+
+    // Request permission after a short delay to ensure app is fully loaded
+    // Only request if WireGuard is available
+    if (wireguardAvailable) {
+      const timer = setTimeout(() => {
+        requestVpnPermissionOnMount();
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [wireguardAvailable]);
+
   useEffect(() => {
     if (error) {
       Toast.fail(error);
