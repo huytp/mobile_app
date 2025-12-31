@@ -33,12 +33,15 @@ const BrowserScreen = () => {
   const { status: vpnStatus } = useVpnStore();
   const [url, setUrl] = useState('https://www.google.com');
   const [currentUrl, setCurrentUrl] = useState('https://www.google.com');
-  const [pendingUrl, setPendingUrl] = useState(null);
-  const [isCheckingUrl, setIsCheckingUrl] = useState(false);
   const [loading, setLoading] = useState(false);
   const [canGoBack, setCanGoBack] = useState(false);
   const [canGoForward, setCanGoForward] = useState(false);
   const webViewRef = useRef(null);
+
+  // Cache for URL safety checks and user decisions
+  const urlSafetyCache = useRef(new Map()); // Map<url, {isMalicious: boolean, userAllowed: boolean}>
+  const checkingUrls = useRef(new Set()); // Track URLs currently being checked
+  const pendingRequests = useRef(new Map()); // Map<url, {resolve: function, request: object}>
 
   // Check if VPN is connected
   const isVpnConnected = vpnStatus === 'connected';
@@ -80,86 +83,136 @@ const BrowserScreen = () => {
     return normalized;
   };
 
-  // Check if URL is malicious
-  const checkUrlSafety = async (urlToCheck) => {
-    setIsCheckingUrl(true);
+  // Extract domain from URL
+  const extractDomain = (urlString) => {
     try {
-      const result = await api.checkURL(urlToCheck);
-
-      if (result.is_malicious) {
-        // Show notification
-        try {
-          await Notifications.scheduleNotificationAsync({
-            content: {
-              title: '⚠️ Malicious URL Warning',
-              body: `URL "${urlToCheck}" has been detected as malicious (Confidence: ${result.confidence}, Probability: ${(result.probability * 100).toFixed(1)}%)`,
-              sound: true,
-              priority: Notifications.AndroidNotificationPriority?.HIGH || 'high',
-            },
-            trigger: null, // Show immediately
-          });
-        } catch (notifError) {
-          console.warn('Failed to show notification:', notifError);
-        }
-
-        // Always show alert
-        Alert.alert(
-          '⚠️ Malicious URL Warning',
-          `This URL has been detected as malicious:\n\n${urlToCheck}\n\nConfidence: ${result.confidence}\nProbability: ${(result.probability * 100).toFixed(1)}%\n\nDo you want to continue accessing it?`,
-          [
-            {
-              text: 'Cancel',
-              style: 'cancel',
-              onPress: () => {
-                // Cancel navigation - keep current URL
-                setPendingUrl(null);
-                setIsCheckingUrl(false);
-                // Reset URL input to current URL
-                setUrl(currentUrl);
-              },
-            },
-            {
-              text: 'Continue Anyway',
-              style: 'destructive',
-              onPress: () => {
-                // User chose to continue - now load the URL
-                setCurrentUrl(urlToCheck);
-                setPendingUrl(null);
-                setIsCheckingUrl(false);
-              },
-            },
-          ]
-        );
-      } else {
-        // URL is safe, proceed with loading
-        setCurrentUrl(urlToCheck);
-        setPendingUrl(null);
-        setIsCheckingUrl(false);
-      }
-    } catch (error) {
-      console.error('Error checking URL safety:', error);
-      // If check fails, allow navigation (fail open)
-      setCurrentUrl(urlToCheck);
-      setPendingUrl(null);
-      setIsCheckingUrl(false);
+      const url = new URL(urlString);
+      return url.hostname;
+    } catch (e) {
+      return null;
     }
   };
 
+  // Check if URL is malicious (async, returns promise)
+  const checkUrlSafety = async (urlToCheck) => {
+    // Skip check if VPN not connected
+    if (!isVpnConnected) {
+      return { is_malicious: false, allow: true };
+    }
+
+    // Check cache first
+    const cached = urlSafetyCache.current.get(urlToCheck);
+    if (cached) {
+      if (cached.isMalicious && !cached.userAllowed) {
+        return { is_malicious: true, allow: false };
+      }
+      return { is_malicious: cached.isMalicious, allow: true };
+    }
+
+    // Skip if already checking this URL
+    if (checkingUrls.current.has(urlToCheck)) {
+      return { is_malicious: false, allow: false, checking: true };
+    }
+
+      checkingUrls.current.add(urlToCheck);
+
+    try {
+      const result = await api.checkURL(urlToCheck);
+
+      // Cache the result
+      urlSafetyCache.current.set(urlToCheck, {
+        isMalicious: result.is_malicious,
+        userAllowed: false,
+        confidence: result.confidence,
+        probability: result.probability,
+      });
+
+      checkingUrls.current.delete(urlToCheck);
+
+      return {
+        is_malicious: result.is_malicious,
+        allow: !result.is_malicious,
+        confidence: result.confidence,
+        probability: result.probability,
+      };
+    } catch (error) {
+      console.error('Error checking URL safety:', error);
+      checkingUrls.current.delete(urlToCheck);
+      // If check fails, allow navigation (fail open)
+      return { is_malicious: false, allow: true };
+    }
+  };
+
+  // Show malicious URL alert and get user decision
+  const showMaliciousUrlAlert = (urlToCheck, confidence, probability) => {
+    return new Promise((resolve) => {
+      // Show notification
+      Notifications.scheduleNotificationAsync({
+        content: {
+          title: '⚠️ Malicious URL Warning',
+          body: `URL "${urlToCheck}" has been detected as malicious (Confidence: ${confidence}, Probability: ${(probability * 100).toFixed(1)}%)`,
+          sound: true,
+          priority: Notifications.AndroidNotificationPriority?.HIGH || 'high',
+        },
+        trigger: null,
+      }).catch((notifError) => {
+        console.warn('Failed to show notification:', notifError);
+      });
+
+      // Show alert
+      Alert.alert(
+        '⚠️ Malicious URL Warning',
+        `This URL has been detected as malicious:\n\n${urlToCheck}\n\nConfidence: ${confidence}\nProbability: ${(probability * 100).toFixed(1)}%\n\nDo you want to continue accessing it?`,
+        [
+          {
+            text: 'Cancel',
+            style: 'cancel',
+            onPress: () => {
+              resolve(false);
+            },
+          },
+          {
+            text: 'Continue Anyway',
+            style: 'destructive',
+            onPress: () => {
+              // Update cache to allow this URL
+              const cached = urlSafetyCache.current.get(urlToCheck);
+              if (cached) {
+                cached.userAllowed = true;
+              }
+              resolve(true);
+            },
+          },
+        ]
+      );
+    });
+  };
+
   // Handle URL navigation
-  const handleGo = () => {
+  const handleGo = async () => {
     const normalizedUrl = normalizeUrl(url);
     setUrl(normalizedUrl);
 
-    // Only check URL safety if VPN is connected
     if (isVpnConnected) {
-      // Set pending URL but don't load yet
-      setPendingUrl(normalizedUrl);
       // Check URL safety before loading
-      checkUrlSafety(normalizedUrl);
+      const result = await checkUrlSafety(normalizedUrl);
+      if (result.is_malicious && !result.allow) {
+        // Show alert and wait for user decision
+        const userAllowed = await showMaliciousUrlAlert(
+          normalizedUrl,
+          result.confidence,
+          result.probability
+        );
+        if (userAllowed) {
+          setCurrentUrl(normalizedUrl);
+        }
+      } else {
+        // URL is safe or user already allowed it
+        setCurrentUrl(normalizedUrl);
+      }
     } else {
       // VPN not connected, load URL directly without checking
       setCurrentUrl(normalizedUrl);
-      setPendingUrl(null);
     }
   };
 
@@ -291,19 +344,74 @@ const BrowserScreen = () => {
         onLoadStart={handleLoadStart}
         onLoadEnd={handleLoadEnd}
         onShouldStartLoadWithRequest={(request) => {
-          // Block navigation if we're checking a URL or if it's the pending malicious URL
-          if (isCheckingUrl && request.url === pendingUrl) {
+          // Only check if VPN is connected
+          if (!isVpnConnected) {
+            return true;
+          }
+
+          const requestUrl = request.url;
+
+          // Skip checking data URLs, about:blank, etc.
+          if (!requestUrl || requestUrl.startsWith('data:') || requestUrl.startsWith('about:') || requestUrl.startsWith('javascript:') || requestUrl.startsWith('file:')) {
+            return true;
+          }
+
+          // Check cache first
+          const cached = urlSafetyCache.current.get(requestUrl);
+          if (cached) {
+            if (cached.isMalicious && !cached.userAllowed) {
+              // Already checked and user didn't allow, block
+              return false;
+            }
+            // Safe or user allowed, allow request
+            return true;
+          }
+
+          // If already checking, block for now
+          if (checkingUrls.current.has(requestUrl)) {
             return false;
           }
-          // Allow navigation for other cases (back/forward, same domain navigation)
-          return true;
+
+          // Start checking in background
+          checkUrlSafety(requestUrl).then((result) => {
+            if (result.is_malicious && !result.allow) {
+              // Show alert
+              showMaliciousUrlAlert(
+                requestUrl,
+                result.confidence,
+                result.probability
+              ).then((userAllowed) => {
+                if (userAllowed) {
+                  // User allowed, update cache and navigate
+                  const cached = urlSafetyCache.current.get(requestUrl);
+                  if (cached) {
+                    cached.userAllowed = true;
+                  }
+                  // Navigate to the URL
+                  setCurrentUrl(requestUrl);
+                } else {
+                  // User cancelled, go back or stay on current page
+                  if (webViewRef.current && canGoBack) {
+                    webViewRef.current.goBack();
+                  }
+                }
+              });
+            } else if (!result.is_malicious) {
+              // URL is safe, navigate to it
+              setCurrentUrl(requestUrl);
+            }
+          });
+
+          // Block initially, will navigate after check if safe
+          checkingUrls.current.add(requestUrl);
+          return false;
         }}
         startInLoadingState={true}
         renderLoading={() => (
           <View style={styles.loadingContainer}>
             <ActivityIndicator size="large" color={COLORS.primary} />
             <Text style={styles.loadingText}>
-              {isCheckingUrl ? 'Checking URL...' : 'Loading...'}
+              Loading...
             </Text>
           </View>
         )}
