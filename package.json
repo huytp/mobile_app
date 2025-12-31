@@ -29,6 +29,7 @@
     "expo-file-system": "~19.0.17",
     "expo-image-picker": "~17.0.8",
     "expo-linking": "~8.0.8",
+    "expo-notifications": "^0.32.15",
     "expo-router": "~6.0.14",
     "expo-secure-store": "~15.0.7",
     "expo-sharing": "~13.0.0",
@@ -47,6 +48,7 @@
     "react-native-screens": "~4.16.0",
     "react-native-tab-view": "^4.2.0",
     "react-native-vector-icons": "^10.3.0",
+    "react-native-webview": "^13.16.0",
     "react-native-wireguard-vpn-connect": "^1.0.15",
     "react-native-worklets-core": "^1.6.2",
     "zustand": "^4.4.0"

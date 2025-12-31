@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const API_BASE_URL = process.env.EXPO_PUBLIC_BACKEND_URL || 'http://localhost:3000';
+const AI_ROUTING_URL = process.env.EXPO_PUBLIC_AI_ROUTING_URL || 'http://localhost:8000';
 
 class ApiService {
   constructor() {
@@ -133,6 +134,35 @@ class ApiService {
       const response = await this.client.get('/health');
       return response.data;
     } catch (error) {
+      throw this.handleError(error);
+    }
+  }
+
+  // URL Safety Check (AI Routing)
+  async checkURL(url) {
+    try {
+      const response = await axios.post(
+        `${AI_ROUTING_URL}/url/check`,
+        { url },
+        {
+          timeout: 10000,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      // If AI routing service is not available, return safe default
+      if (error.code === 'ECONNREFUSED' || error.code === 'ENOTFOUND' || !error.response) {
+        console.warn('AI Routing service not available, assuming URL is safe');
+        return {
+          url,
+          is_malicious: false,
+          probability: 0,
+          confidence: 'unknown',
+        };
+      }
       throw this.handleError(error);
     }
   }

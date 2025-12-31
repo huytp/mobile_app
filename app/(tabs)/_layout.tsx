@@ -68,6 +68,17 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
+        name="browser"
+        options={{
+          title: 'Browser',
+          tabBarLabel: 'Browser',
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="web" size={size || 24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="wallet"
         options={{
           title: 'Wallet',
