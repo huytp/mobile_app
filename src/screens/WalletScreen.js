@@ -157,7 +157,7 @@ const WalletScreen = () => {
             </View>
             <View style={styles.infoItem}>
               <MaterialCommunityIcons name="gift" size={20} color={COLORS.primary} />
-              <Text style={styles.infoText}>Claim rewards</Text>
+              <Text style={styles.infoText}>View rewards</Text>
             </View>
             <View style={styles.infoItem}>
               <MaterialCommunityIcons name="wallet" size={20} color={COLORS.primary} />
@@ -179,7 +179,7 @@ const WalletScreen = () => {
             </View>
             <Text style={styles.welcomeText}>Connect Your Wallet</Text>
             <Text style={styles.descriptionText}>
-              Connect your Web3 wallet to use DeVPN services and claim rewards
+              Connect your Web3 wallet to use DeVPN services and view rewards
             </Text>
 
             <TouchableOpacity

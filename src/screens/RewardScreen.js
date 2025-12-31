@@ -1,26 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, RefreshControl, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, RefreshControl } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import useRewardStore from '../store/rewardStore';
 import useWalletStore from '../store/walletStore';
 import api from '../services/api';
-import blockchain from '../services/blockchain';
-import Toast from '../components/Toast';
 import { COLORS } from '../utils/constants';
 
 const RewardScreen = () => {
   const {
     epochs,
-    pendingRewards,
-    claimedRewards,
     loading,
     fetchEpochsStart,
     fetchEpochsSuccess,
     fetchEpochsFailure,
-    claimRewardStart,
-    claimRewardSuccess,
-    claimRewardFailure,
-    updatePendingRewards,
   } = useRewardStore();
   const { address, connected, tokenBalance } = useWalletStore();
   const [refreshing, setRefreshing] = useState(false);
@@ -28,7 +20,6 @@ const RewardScreen = () => {
   useEffect(() => {
     if (connected && address) {
       loadEpochs();
-      loadPendingRewards();
     }
   }, [connected, address]);
 
@@ -42,76 +33,9 @@ const RewardScreen = () => {
     }
   };
 
-  const loadPendingRewards = async () => {
-    if (!address) return;
-
-    try {
-      const epochsData = await api.getEpochs();
-      const committedEpochs = epochsData.filter((e) => e.status === 'committed');
-      const pending = [];
-
-      for (const epoch of committedEpochs) {
-        try {
-          const proof = await api.getRewardProof(address, epoch.epoch_id);
-          if (proof) {
-            const isClaimed = await blockchain.isRewardClaimed(
-              epoch.epoch_id,
-              address
-            );
-            if (!isClaimed) {
-              pending.push({
-                epoch: epoch.epoch_id,
-                amount: proof.amount,
-                startTime: epoch.start_time,
-                endTime: epoch.end_time,
-                proof: proof,
-              });
-            }
-          }
-        } catch (err) {
-          // Skip if no reward for this epoch
-        }
-      }
-
-      updatePendingRewards(pending);
-    } catch (err) {
-      // Error loading pending rewards
-    }
-  };
-
-  const handleClaimReward = async (reward) => {
-    if (!connected || !address) {
-      Toast.fail('Please connect wallet first');
-      return;
-    }
-
-    claimRewardStart();
-    try {
-      const result = await blockchain.claimReward(
-        reward.epoch,
-        reward.proof.amount,
-        reward.proof.proof
-      );
-
-      claimRewardSuccess({
-        epoch: reward.epoch,
-        amount: reward.amount,
-        txHash: result.txHash,
-      });
-
-      Toast.success(`Reward claimed! TX: ${result.txHash.slice(0, 10)}...`);
-
-      // Reload pending rewards
-      loadPendingRewards();
-    } catch (err) {
-      claimRewardFailure(err.message);
-      Toast.fail(err.message);
-    }
-  };
-
   const onRefresh = async () => {
     setRefreshing(true);
-    await Promise.all([loadEpochs(), loadPendingRewards()]);
+    await loadEpochs();
     setRefreshing(false);
   };
 
@@ -119,13 +43,6 @@ const RewardScreen = () => {
     if (!dateString) return 'N/A';
     const date = new Date(dateString);
     return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
-  };
-
-  const formatAmount = (amount) => {
-    if (!amount) return '0 DEVPN';
-    // Amount is in wei (smallest unit), convert to tokens
-    const tokens = parseInt(amount) / 1e18;
-    return tokens.toFixed(4) + ' DEVPN';
   };
 
   return (
@@ -157,47 +74,6 @@ const RewardScreen = () => {
 
       {connected && (
         <>
-          {/* Pending Rewards */}
-          <View style={styles.section}>
-            <View style={styles.sectionHeader}>
-              <MaterialCommunityIcons name="gift" size={24} color={COLORS.primary} />
-              <Text style={styles.sectionTitle}>Pending Rewards</Text>
-            </View>
-            {pendingRewards.length === 0 ? (
-              <View style={styles.emptyCard}>
-                <MaterialCommunityIcons name="gift-outline" size={48} color={COLORS.textMuted} />
-                <Text style={styles.emptyText}>No pending rewards</Text>
-              </View>
-            ) : (
-              pendingRewards.map((reward) => (
-                <View key={reward.epoch} style={styles.rewardCard}>
-                  <View style={styles.rewardInfo}>
-                    <View style={styles.rewardHeader}>
-                      <Text style={styles.rewardEpoch}>Epoch #{reward.epoch}</Text>
-                      <Text style={styles.rewardAmount}>
-                        {formatAmount(reward.amount)}
-                      </Text>
-                    </View>
-                    <Text style={styles.rewardTime}>
-                      {formatDate(reward.endTime)}
-                    </Text>
-                  </View>
-                  <TouchableOpacity
-                    style={styles.claimButton}
-                    onPress={() => handleClaimReward(reward)}
-                    disabled={loading}
-                  >
-                    <View style={styles.claimButtonGradient}>
-                      <Text style={styles.claimButtonText}>
-                        {loading ? 'Claiming...' : 'Claim'}
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-              ))
-            )}
-          </View>
-
           {/* Epochs */}
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
@@ -310,50 +186,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: COLORS.textMuted,
     marginTop: 12,
-    fontSize: 14,
-  },
-  rewardCard: {
-    backgroundColor: COLORS.card,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  rewardInfo: {
-    flex: 1,
-  },
-  rewardHeader: {
-    marginBottom: 8,
-  },
-  rewardEpoch: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: COLORS.text,
-    marginBottom: 4,
-  },
-  rewardAmount: {
-    fontSize: 20,
-    color: COLORS.primary,
-    fontWeight: 'bold',
-  },
-  rewardTime: {
-    fontSize: 12,
-    color: COLORS.textSecondary,
-  },
-  claimButton: {
-    marginLeft: 12,
-  },
-  claimButtonGradient: {
-    paddingHorizontal: 24,
-    paddingVertical: 10,
-    borderRadius: 20,
-    backgroundColor: COLORS.primary,
-  },
-  claimButtonText: {
-    color: COLORS.text,
-    fontWeight: 'bold',
     fontSize: 14,
   },
   epochCard: {
