@@ -88,6 +88,26 @@ export default function TabsLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="subscription"
+        options={{
+          title: 'Subscription',
+          tabBarLabel: 'Top Up',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="credit-card" size={size || 24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="account" size={size || 24} color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

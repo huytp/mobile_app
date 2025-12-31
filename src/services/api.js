@@ -12,6 +12,103 @@ class ApiService {
         'Content-Type': 'application/json',
       },
     });
+
+    // Add request interceptor to include auth token
+    this.client.interceptors.request.use(
+      (config) => {
+        // Token will be set via setAuthToken method
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
+  }
+
+  // Set authentication token
+  setAuthToken(token) {
+    if (token) {
+      this.client.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    } else {
+      delete this.client.defaults.headers.common['Authorization'];
+    }
+  }
+
+  // Auth endpoints
+  async register(email, password, name) {
+    try {
+      const response = await this.client.post('/auth/register', {
+        user: {
+          email,
+          password,
+          name,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      throw this.handleError(error);
+    }
+  }
+
+  async login(email, password) {
+    try {
+      const response = await this.client.post('/auth/login', {
+        email,
+        password,
+      });
+      return response.data;
+    } catch (error) {
+      throw this.handleError(error);
+    }
+  }
+
+  async getMe() {
+    try {
+      const response = await this.client.get('/auth/me');
+      return response.data;
+    } catch (error) {
+      throw this.handleError(error);
+    }
+  }
+
+  async logout() {
+    try {
+      const response = await this.client.post('/auth/logout');
+      return response.data;
+    } catch (error) {
+      throw this.handleError(error);
+    }
+  }
+
+  // Subscription endpoints
+  async getSubscriptionStatus() {
+    try {
+      const response = await this.client.get('/subscriptions/status');
+      return response.data;
+    } catch (error) {
+      throw this.handleError(error);
+    }
+  }
+
+  async getSubscriptionPlans() {
+    try {
+      const response = await this.client.get('/subscriptions/plans');
+      return response.data;
+    } catch (error) {
+      throw this.handleError(error);
+    }
+  }
+
+  async purchaseSubscription(plan, paymentMethod = 'google_pay') {
+    try {
+      const response = await this.client.post('/subscriptions/purchase', {
+        plan,
+        payment_method: paymentMethod,
+      });
+      return response.data;
+    } catch (error) {
+      throw this.handleError(error);
+    }
   }
 
   // VPN Connection
@@ -172,15 +269,15 @@ class ApiService {
       // Server trả về response nhưng có lỗi
       const errorMessage = error.response.data?.error || error.response.data?.message || 'API Error';
 
-      // Xử lý lỗi 503 (No available route)
+      // Handle 503 error (No available route)
       if (error.response.status === 503 && errorMessage.includes('No available route')) {
-        return new Error('Không có route khả dụng. Vui lòng đảm bảo:\n1. Có nodes đã đăng ký\n2. AI Routing Engine đang chạy\n3. Nodes đang active');
+        return new Error('No available route. Please ensure:\n1. Nodes are registered\n2. AI Routing Engine is running\n3. Nodes are active');
       }
 
       return new Error(`${errorMessage} (Status: ${error.response.status})`);
     } else if (error.request) {
-      // Request được gửi nhưng không nhận được response
-      return new Error(`Không thể kết nối đến server. Vui lòng kiểm tra:\n1. Backend có đang chạy không?\n2. URL: ${API_BASE_URL}\n3. Trên mobile device, dùng IP thay vì localhost`);
+      // Request was sent but no response received
+      return new Error(`Cannot connect to server. Please check:\n1. Is the backend running?\n2. URL: ${API_BASE_URL}\n3. On mobile device, use IP instead of localhost`);
     } else {
       // Lỗi khi setup request
       return new Error(error.message || 'Unknown error');

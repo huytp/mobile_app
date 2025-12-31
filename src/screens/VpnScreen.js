@@ -15,8 +15,10 @@ import api from '../services/api';
 import networkSpeed from '../services/networkSpeed';
 import Toast from '../components/Toast';
 import { COLORS } from '../utils/constants';
+import { useRouter } from 'expo-router';
 
 const VpnScreen = () => {
+  const router = useRouter();
   const insets = useSafeAreaInsets();
   const {
     status,
@@ -37,6 +39,7 @@ const VpnScreen = () => {
   } = useVpnStore();
   const { address, connected } = useWalletStore();
   const [connectionTime, setConnectionTime] = useState(0);
+  const [subscription, setSubscription] = useState(null);
   const [networkStats, setNetworkStats] = useState({
     downloadSpeed: 0,
     uploadSpeed: 0,
@@ -109,7 +112,18 @@ const VpnScreen = () => {
   // Fetch public IP on mount
   useEffect(() => {
     fetchPublicIP();
+    loadSubscription();
   }, []);
+
+  // Load subscription status
+  const loadSubscription = async () => {
+    try {
+      const data = await api.getSubscriptionStatus();
+      setSubscription(data.subscription);
+    } catch (error) {
+      console.error('Error loading subscription:', error);
+    }
+  };
 
   // Check if WireGuard library is available (won't work in Expo Go)
   useEffect(() => {
@@ -308,6 +322,33 @@ const VpnScreen = () => {
   }, [status, connectionId, isMeasuringSpeed]);
 
   const handleConnect = async () => {
+    // Check subscription first
+    try {
+      const subscriptionData = await api.getSubscriptionStatus();
+      setSubscription(subscriptionData.subscription);
+
+      if (!subscriptionData.subscription?.active) {
+        Alert.alert(
+          'Subscription Required',
+          'You need an active subscription to use VPN. Please subscribe to continue.',
+          [
+            {
+              text: 'Cancel',
+              style: 'cancel',
+            },
+            {
+              text: 'Go to Subscription',
+              onPress: () => router.push('/(tabs)/subscription'),
+            },
+          ]
+        );
+        return;
+      }
+    } catch (error) {
+      console.error('Error checking subscription:', error);
+      // If API fails, still allow connection attempt
+    }
+
     connectStart();
     try {
       // Step 1: Get VPN connection from backend
